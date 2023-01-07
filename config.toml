@@ -1,0 +1,34 @@
+baseURL = "https://adhikasp.my.id/"
+languageCode = "en-us"
+title = "Adhika Setya Pramudita"
+theme = "ink-free"
+
+[_build]
+list = 'always'
+publishResources = true
+render = 'always'
+
+[params]
+subtitle = "Collection of thoughts"
+mainSections = ["posts"]
+wpm = 150
+featherIconsCDN = false
+maxTags = 5
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "My other site"
+url = "/public-service"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3

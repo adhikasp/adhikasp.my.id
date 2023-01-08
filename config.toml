@@ -12,7 +12,7 @@ render = 'always'
 subtitle = "Collection of thoughts"
 mainSections = ["posts"]
 wpm = 150
-featherIconsCDN = false
+featherIconsCDN = true
 maxTags = 5
 
 [markup.goldmark.renderer]
@@ -32,3 +32,23 @@ weight = 2
 name = "About"
 url = "/about"
 weight = 3
+
+[[params.social]]
+name = "Stack Overflow"
+url = "https://stackoverflow.com/users/4504053/adhika-setya-pramudita"
+icon = "layers"
+
+[[params.social]]
+name = "LinkedIn"
+url = "https://linkedin.com/in/adhikasp"
+icon = "linkedin"
+
+[[params.social]]
+name = "Github"
+url = "https://github.com/adhikasp"
+icon = "github"
+
+[[params.social]]
+name = "Gitlab"
+url = "https://gitlab.com/adhikasp"
+icon = "gitlab"

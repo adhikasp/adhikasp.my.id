@@ -2,6 +2,7 @@ baseURL = "https://adhikasp.my.id/"
 languageCode = "en-us"
 title = "Adhika Setya Pramudita"
 theme = "ink-free"
+enableRobotsTXT = true
 
 [_build]
 list = 'always'
@@ -17,6 +18,10 @@ maxTags = 5
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
 
 [[menu.main]]
 name = "Home"
@@ -52,3 +57,8 @@ icon = "github"
 name = "Gitlab"
 url = "https://gitlab.com/adhikasp"
 icon = "gitlab"
+
+[[params.social]]
+name = "Instagram"
+url = "https://www.instagram.com/adhikasp/"
+icon = "instagram"

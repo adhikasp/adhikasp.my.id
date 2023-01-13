@@ -5,6 +5,8 @@ description: This site is served not from cloud or hosting service, but from a c
 tags:
   - "software-development"
   - "infrastructure"
+images:
+  - "/images/home-server.jpg"
 ---
 
 This site is served not from cloud or hosting service, but from a crappy consumer-grade desktop from 2008 that I store in my living room, with a Cloudflare Tunnel.
@@ -30,7 +32,7 @@ Beside, it is cheaper as I don't need to rent a VPS. My electricity budget surel
 
 ## The difficult part
 
-Self hosting can be tricky if you have ISP that use CGNAT. It means you don't have public IP assigned and there is no way for public traffic from internet to access yourself. You can't use [DDNS](https://en.wikipedia.org/wiki/Dynamic_DNS) as the IP that get registered doesn't belong to you exclusively.
+Self hosting can be tricky if you have ISP that use [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). It means you don't have public IP assigned and there is no way for public traffic from internet to initiate access to you. They can still reply to you if you initiate the connection, like when you browse the internet. You can't use [DDNS](https://en.wikipedia.org/wiki/Dynamic_DNS) as the IP that get registered doesn't belong to you exclusively.
 
 There is atleast 2 workaround for this:
 

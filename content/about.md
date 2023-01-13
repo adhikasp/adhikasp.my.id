@@ -1,10 +1,17 @@
 ---
 title: "About"
 type: "page"
+sitemap:
+  changefreq: weekly
+  priority: 0.8
 ---
 
-A software engineer, likes to play with Linux and stuff.
+Hey, I am Adhika. I works as software engineer. 
 
-- [LinkedIn](https://linkedin.com/in/adhikasp)
-- [GitHub](https://github.com/adhikasp)
-- [Stack Overflow](https://stackoverflow.com/users/4504053/adhika-setya-pramudita)
+I do things around distributed backend services, specifically with Go and Java / Spring Boot in past. I dabble in front end too, know just enough to work my way around Vue and React JS codebase.
+
+I also meddle with infrastructure and operational stuff in AWS, setting up servers, scaling it, load balancing it, monitor it, fixing it, optimizing it. My recent works make me more familiar with the usage of databases like MySQL, OLAP DB like Apache Druid, and data engineering world like configuring data pipeline, batch data procssing, and using Presto for offline analytics queries.
+
+Non-professionally I like to play around setting up Linux server box like this website.
+
+If you want to drop me message, contact me at hello @ adhikasp.my.id

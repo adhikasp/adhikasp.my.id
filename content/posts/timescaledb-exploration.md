@@ -4,7 +4,7 @@ date: 2022-02-20T18:22:58+07:00
 description: This is a simple exploration of TimescaleDB, a time-series database.
 tags:
   - "software-development"
-  - "database"
+  - "data"
 ---
 
 This is a simple exploration of [TimescaleDB](https://www.timescale.com/), a time-series database.

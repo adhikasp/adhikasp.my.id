@@ -47,4 +47,47 @@
         ></script>
 	<link rel="webmention" href="https://webmention.io/adhikasp.my.id/webmention" />
 	<link rel="pingback" href="https://webmention.io/adhikasp.my.id/xmlrpc" />
+
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "@id": "https://adhikasp.my.id/#person",
+		  "name": "Adhika Setya Pramudita",
+		  "url": "https://adhikasp.my.id",
+		  "sameAs": [
+			"https://stackoverflow.com/users/4504053/adhika-setya-pramudita",
+			"https://linkedin.com/in/adhikasp",
+			"https://github.com/adhikasp",
+			"https://gitlab.com/adhikasp",
+			"https://www.instagram.com/adhikasp/"
+		  ]
+		}
+	</script>
+	{{ if ne .Type "page" }}
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "BlogPosting",
+		  "headline": "{{ .Title }}",
+		  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+		  {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",{{ end }}
+		  "wordCount": {{ .WordCount }},
+		  "url": "{{ .Permalink }}",
+		  "author": {
+			"@type": "Person",
+			"@id": "https://adhikasp.my.id/#person"
+		  },
+		  "publisher": {
+			"@type": "Person",
+			"@id": "https://adhikasp.my.id/#person"
+		  },
+		  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}",
+		  "mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "{{ .Permalink }}"
+		  }
+		}
+	</script>
+	{{ end }}
 </head>

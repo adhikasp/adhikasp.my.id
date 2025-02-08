@@ -1,7 +1,6 @@
 ---
 title: "Tailscale for Residential IP Forward Proxy in Cloud"
 date: 2025-02-08T21:34:39+07:00
-draft: true
 description: When you need to have a residential IP for your server, but you don't want to pay for it dedicated proxy service.
 tags:
   - "software-development"
@@ -21,11 +20,34 @@ There were some potential solutions for this:
 
 I chose the third option since it is free and sounds fun to explore. This solution leverages [Tailscale](https://tailscale.com/), a zero-config VPN that makes it easy to create secure networks between devices.
 
+
+## The Architecture
+
+```mermaid
+sequenceDiagram
+    participant User as TanyaGPT User
+    participant Cloud as Cloud Server<br/>(fly.io)
+    participant Home as Dev Machine<br/>(Home IP)
+    participant YT as YouTube API
+
+    User->>Cloud: Ask question about YouTube video
+    Note over Cloud: Need YouTube<br/>transcript
+    Cloud->>Home: YouTube API Call<br/>via Tailscale Proxy
+    Home->>YT: API Request<br/>(with residential IP)
+    YT-->>Home: API Response
+    Home-->>Cloud: Proxy Response
+    Cloud-->>User: Chatbot answer
+```
+
 ## Configuring Tailscale
 
 On my dev machine that has residential IP, I run the tailscale node. While Tailscale can advertise it as an "Exit node" to route all traffic, I only wanted to proxy YouTube-specific traffic. This is where Tailscale's [app connector](https://tailscale.com/kb/1281/app-connectors) feature comes in handy.
 
-Here's the Tailscale ACL configuration I used:
+First, I created a new Tailscale app connector for YouTube:
+
+![Tailscale app connector](/images/tailscale-app-connector.png)
+
+Then the Tailscale ACL configuration I used:
 
 ```hcl
 "groups": {
@@ -58,8 +80,6 @@ Here's the Tailscale ACL configuration I used:
 ],
 ```
 
-![Tailscale app connector](/images/tailscale-app-connector.png)
-
 ## Setting Up the Cloud Server
 
 For the cloud server setup, I followed the [Tailscale on Fly.io](https://tailscale.com/kb/1132/flydotio) docs with some modifications. The key steps were:
@@ -71,40 +91,12 @@ For the cloud server setup, I followed the [Tailscale on Fly.io](https://tailsca
 The auto-reconnect was necessary because Fly.io suspends machines during idle periods. Since the node is ephemeral, the Tailscale coordinator delete the machine from the network, causing the machine to unable to reconnect. It was something like this:
 
 ```python
-def ensure_tailscale_connection():
-    if youtube_api_call_attempted:
+@tool
+def get_youtube_transcript(video_url: str) -> str:
+    if os.environ.get("ENVIRONMENT") == "production":
         subprocess.run(["tailscale", "down"])
         subprocess.run(["tailscale", "up"])
-```
-
-## The Final Architecture
-
-```goat
-┌──────────────┐     ┌──────────────┐     ┌───────────────┐     ┌──────────────┐
-│              │     │              │     │               │     │              │
-│ TanyaGPT     │     │ Cloud Server │     │ Dev Machine   │     │   YouTube    │
-│    User      │     │  (fly.io)    │     │ (Home IP)     │     │    API       │
-│              │     │              │     │               │     │              │
-└──────┬───────┘     └──────┬───────┘     └───────┬───────┘     └───────┬──────┘
-       │                    │                     │                     │
-       │   HTTP Request     │                     │                     │
-       │───────────────────>│                     │                     │
-       │                    │                     │                     │
-       │                    │  YouTube API Call   │                     │
-       │                    │ via Tailscale Proxy │                     │
-       │                    │────────────────────>│                     │
-       │                    │                     │                     │
-       │                    │                     │    API Request      │
-       │                    │                     │────────────────────>│
-       │                    │                     │                     │
-       │                    │                     │    API Response     │
-       │                    │                     │<────────────────────│
-       │                    │   Proxy Response    │                     │
-       │                    │<────────────────────│                     │
-       │                    │                     │                     │
-       │   HTTP Response    │                     │                     │
-       │<───────────────────│                     │                     │
-       │                    │                     │                     │
+    ...
 ```
 
 ## Performance and Limitations

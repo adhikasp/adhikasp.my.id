@@ -47,7 +47,9 @@ First, I created a new Tailscale app connector for YouTube:
 
 ![Tailscale app connector](/images/tailscale-app-connector.png)
 
-Then the Tailscale ACL configuration I used:
+I add the api.ipify.org to the connector to test if the proxy is working, so I can do quick curl check and see my residential IP.
+
+Then on the Tailscale ACL configuration I used:
 
 ```hcl
 "groups": {

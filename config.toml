@@ -11,7 +11,7 @@ render = 'always'
 
 [params]
 subtitle = "Collection of thoughts"
-mainSections = ["posts"]
+mainSections = ["posts", "link-blog"]
 wpm = 150
 featherIconsCDN = true
 maxTags = 5

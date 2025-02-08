@@ -7,6 +7,7 @@ tags:
   - "infrastructure"
   - "tailscale"
   - "networking"
+toc: true
 ---
 
 One of the features in [TanyaGPT](https://tanyagpt.my.id/) is to "watch" a YouTube video and answer questions about it. It works by pulling the video transcript as part of the LLM inference.
@@ -51,7 +52,8 @@ I add the api.ipify.org to the connector to test if the proxy is working, so I c
 
 Then on the Tailscale ACL configuration I used:
 
-```hcl
+```json
+{
 "groups": {
     "group:youtube-admins": ["my-email"],
 },
@@ -79,7 +81,8 @@ Then on the Tailscale ACL configuration I used:
             ],
         },
     },
-],
+]
+}
 ```
 
 ## Setting Up the Cloud Server

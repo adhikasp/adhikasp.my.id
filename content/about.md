@@ -6,12 +6,18 @@ sitemap:
   priority: 0.8
 ---
 
-Hey, I am Adhika. I works as software engineer. 
+Hey, I am Adhika. I work as a software engineer with experience in building and scaling distributed systems.
 
-I do things around distributed backend services, specifically with Go and Java / Spring Boot in past. I dabble in front end too, know just enough to work my way around Vue and React JS codebase.
+My expertise spans across:
 
-I also meddle with infrastructure and operational stuff in AWS, setting up servers, scaling it, load balancing it, monitor it, fixing it, optimizing it. My recent works make me more familiar with the usage of databases like MySQL, OLAP DB like Apache Druid, and data engineering world like configuring data pipeline, batch data procssing, and using Presto for offline analytics queries.
+- **Backend Development**: Building distributed services and APIs using Go, Python, and Java/Spring Boot. I have experience in developing high-throughput systems processing millions of transactions daily.
+- **AI/ML Engineering**: Working with LLMs and recommendation systems, including prompt engineering, evaluation pipelines, and production deployment of AI-powered features.
+- **Data Engineering**: Extensive work with data pipelines, OLAP databases (Apache Druid), and analytics using Presto. Experience in data modeling, ETL processes, data wrangling with lightweight analysis, and building data-driven features.
+- **Infrastructure & DevOps**: Managing cloud infrastructure on AWS, focusing on scalability, monitoring, and cost optimization. Setting up CI/CD pipelines and implementing SRE best practices.
+- **Developer Experience**: Building developer tooling and improving engineering productivity through automation, better testing practices, and documentation.
 
-Non-professionally I like to play around setting up Linux server box like this website.
+I enjoy working on complex technical challenges, particularly around system scalability, data processing, and AI/ML applications. I'm passionate about building reliable systems and improving developer productivity.
 
-If you want to drop me message, contact me at hello @ adhikasp.my.id
+In my free time, I tinker with self-hosted services and Linux systems. This website is one example of my personal projects.
+
+If you want to drop me a message, contact me at hello @ adhikasp.my.id

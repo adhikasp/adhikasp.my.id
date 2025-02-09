@@ -8,6 +8,7 @@ sitemap:
 
 I run several open source apps, feel free to use them. This provided on best-effort basis and I may change and became unavailable without notice.
 
+- <a href="https://arxivtok.adhikasp.my.id/" class="umami--click--service-arxivtok">ArxivTok</a> - a TikTok-like interface for browsing arXiv papers. Forked from <a href="https://github.com/Miguel07Alm/arxivtok">Miguel07Alm/arxivtok</a>
 - <a href="https://github.com/adhikasp/mcp-client-cli" class="umami--click--service-mcp">MCP Client CLI</a> - a command line interface for interacting with LLM model, implementing Model Context Protocol.
 - <a href="https://tanyagpt.my.id/" class="umami--click--service-tanyagpt">TanyaGPT</a> - a simple cross-platform chatbot client powered by LLM.
 - <a href="https://github.com/adhikasp/kodepos" class="umami--click--service-kodepos">Kodepos</a> - visualizes Indonesia's postal code regions in hierarichal manner.

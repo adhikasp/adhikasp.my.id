@@ -1,0 +1,46 @@
+{{ $notebook := .Get 0 }}
+{{ with .Page.Resources.GetMatch $notebook }}
+  {{ with .Content | transform.Unmarshal }}
+    {{ range .cells }}
+      {{ if eq .cell_type "markdown" }}
+        {{ range .source }}{{ . | markdownify }}{{ end }}
+      {{ end }}
+
+      {{ if eq .cell_type "code" }}
+        {{ $code := delimit .source "" }}
+        {{ $lines := split $code "\n" | len }}
+        {{ if gt $lines 20 }}
+          <details>
+            <summary class="ipynb-button">Show code ({{ $lines }} lines)</summary>
+            {{ highlight $code "python" "" }}
+          </details>
+        {{ else }}
+          {{ highlight $code "python" "" }}
+        {{ end }}
+
+        {{ if .outputs }}
+          <div class="cell-output">
+            <p>Output:</p>
+            {{ range .outputs }}
+              {{ if .text }}
+                <pre>{{ range .text }}{{ . | safeHTML }}{{ end }}</pre>
+              {{ end }}
+              
+              {{ range $type, $data := .data }}
+                {{ if strings.Contains $type "image" }}
+                  <img src="data:{{ $type }};base64,{{ $data | safeHTML }}" alt="Cell output">
+                {{ end }}
+                
+                {{ if strings.Contains $type "text" }}
+                  <pre>{{ range $data }}{{ . | safeHTML }}{{ end }}</pre>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  <a href="{{ .RelPermalink }}" download>🗒️ Download ({{ $notebook }})</a>
+  <br>
+{{ end }}

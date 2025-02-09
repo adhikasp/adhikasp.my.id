@@ -12,11 +12,12 @@ render = 'always'
 
 [params]
 subtitle = "Collection of thoughts"
-mainSections = ["posts", "link-blog"]
+mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
 featherIconsCDN = true
 maxTags = 5
 mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
+customcss = "mine.css"
 
 [markup.goldmark.renderer]
 unsafe = true

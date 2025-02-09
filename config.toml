@@ -47,7 +47,7 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "My other site"
+name = "My other projects"
 url = "/public-service"
 weight = 2
 

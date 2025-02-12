@@ -1,0 +1,10 @@
+repos:
+  - repo: local
+    hooks:
+      - id: hugo-build
+        name: Build Hugo site
+        entry: hugo
+        language: system
+        pass_filenames: false
+        types: [file]
+        types_or: [markdown, html, css, javascript, toml, yaml] 

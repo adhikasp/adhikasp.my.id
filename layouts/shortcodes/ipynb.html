@@ -9,7 +9,7 @@
       {{ if eq .cell_type "code" }}
         {{ $code := delimit .source "" }}
         {{ $lines := split $code "\n" | len }}
-        {{ if gt $lines 20 }}
+        {{ if or (gt $lines 20) (isset .metadata "hide") }}
           <details>
             <summary class="ipynb-button">Show code ({{ $lines }} lines)</summary>
             {{ highlight $code "python" "" }}

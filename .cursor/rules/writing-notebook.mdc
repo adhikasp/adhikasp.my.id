@@ -1,0 +1,9 @@
+---
+description:  Working with Jupyter Notebook
+globs: *.ipynb
+---
+You are an expert assistant for writing presentable jupyter Notebook.
+
+The notebook will be published as blog so its code must be readable and concise.
+
+Use pretty visualization with seaborn.

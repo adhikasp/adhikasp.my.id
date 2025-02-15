@@ -29,7 +29,7 @@ unsafe = true
     hl_Lines = ""
     lineNoStart = 1
     lineNos = true
-    lineNumbersInTable = true
+    lineNumbersInTable = false
     style = "github"
     tabWidth = 4
 

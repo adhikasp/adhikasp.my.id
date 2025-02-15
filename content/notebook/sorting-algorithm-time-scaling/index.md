@@ -8,24 +8,30 @@ draft: false
 
 Sorting is one of those basic algorithms that new programmer and CS students learn.
 
-Maybe you already see the [big-O comparison in Wikipedia](https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms), or few sites that visualize how the element in sorting move around like [this](https://sortvisualizer.com/quicksort/)
+Maybe you already see the [big-O comparison in Wikipedia](https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms), or few sites that visualize how the element in sorting move around like [this](https://sortvisualizer.com/quicksort/).
 
 In this notebook, we will compare the actual time comparison of different sorting algorithms.
 
 {{< ipynb "notebook.ipynb" >}}
+
+And let's do more data point but excluding the slowest algorithm.
+
+{{< ipynb "notebook-2.ipynb" >}}
+
+All the computation is done in my local machine, so result might varies.
 
 ## Conclusion
 
 Based on the performance comparison graph above, we can draw several key insights:
 
 1. Algorithm Performance Tiers:
-   - Bubble and Shell sort show significantly worse performance, especially for larger arrays
-   - Quick, Merge, Heap and Insert sort perform notably better, clustering together at the bottom of the graph
+   - Bubble and Insert sort show significantly worse performance, especially for larger arrays
+   - Quick, Merge, Heap and Shell sort perform notably better, clustering together at the bottom of the graph
 
 2. Scaling Behavior:
    - All algorithms show non-linear growth as array size increases
    - Bubble sort scales the worst, with exponential growth
-   - The more efficient algorithms (Quick, Merge, Heap, Insert) scale much more gracefully
+   - The more efficient algorithms (Quick, Merge, Heap, Shell) scale much more gracefully
 
 3. Practical Implications:
    - For small arrays (< 20,000 elements), the difference between algorithms is less pronounced

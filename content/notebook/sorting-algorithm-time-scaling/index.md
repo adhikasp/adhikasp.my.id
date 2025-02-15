@@ -1,6 +1,6 @@
 ---
 title: "Sorting Algorithm Time Scaling"
-date: 2025-02-12T11:53:00+07:00
+date: 2025-02-15T11:53:00+07:00
 description: "Comparing the time complexity of different sorting algorithms"
 tags: ["notebook", "software engineering"]
 draft: false

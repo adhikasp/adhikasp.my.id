@@ -4,6 +4,10 @@ title = "Adhika Setya Pramudita"
 theme = "ink-free"
 enableRobotsTXT = true
 tableOfContents = true
+enableGitInfo = true
+
+[frontmatter]
+lastmod = [':git', ':fileModTime']
 
 [_build]
 list = 'always'

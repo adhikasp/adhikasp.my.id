@@ -3,7 +3,7 @@
   {{ with .Content | transform.Unmarshal }}
     {{ range .cells }}
       {{ if eq .cell_type "markdown" }}
-        {{ range .source }}{{ . | markdownify }}{{ end }}
+        {{ delimit .source "" | $.Page.RenderString }}
       {{ end }}
 
       {{ if eq .cell_type "code" }}
@@ -22,7 +22,7 @@
           <div class="cell-output">
             {{ range .outputs }}
               {{ if .text }}
-                <div class="cell-output-text">{{ range .text }}{{ . | safeHTML }}{{ end }}</div>
+                <pre class="cell-output-text">{{ range .text }}{{ . | safeHTML }}{{ end }}</pre>
               {{ end }}
               
               {{ range $type, $data := .data }}
@@ -30,8 +30,8 @@
                   <img src="data:{{ $type }};base64,{{ $data | safeHTML }}" alt="Cell output">
                 {{ end }}
                 
-                {{ if strings.Contains $type "text" }}
-                  <pre>{{ range $data }}{{ . | safeHTML }}{{ end }}</pre>
+                {{ if strings.Contains $type "text/html" }}
+                  {{ range $data }}{{ . | safeHTML }}{{ end }}
                 {{ end }}
               {{ end }}
             {{ end }}

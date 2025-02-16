@@ -7,4 +7,4 @@ repos:
         language: system
         pass_filenames: false
         types: [file]
-        types_or: [markdown, html, css, javascript, toml, yaml] 
+        types_or: [markdown, html, css, javascript, toml, yaml, python]

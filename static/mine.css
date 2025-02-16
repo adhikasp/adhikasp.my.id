@@ -22,3 +22,7 @@
 nav.social.nav {
   padding-top: 15px;
 }
+
+.post a:visited {
+  color: #666666;
+}

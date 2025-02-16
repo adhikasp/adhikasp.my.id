@@ -33,6 +33,10 @@
                 {{ if strings.Contains $type "text/html" }}
                   {{ range $data }}{{ . | safeHTML }}{{ end }}
                 {{ end }}
+
+                {{ if strings.Contains $type "text/markdown" }}
+                  {{ range $data }}{{ . | markdownify }}{{ end }}
+                {{ end }}
               {{ end }}
             {{ end }}
           </div>

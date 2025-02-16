@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bracket {
+      fill: none;
+      stroke: #f5a623;
+      stroke-width: 60;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .accent {
+      fill: none;
+      stroke: #6366f1;
+      stroke-width: 60;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+  
+  <!-- Left bracket -->
+  <path class="bracket" d="M 180 80 L 80 256 L 180 432" />
+  
+  <!-- Right bracket -->
+  <path class="accent" d="M 332 80 L 432 256 L 332 432" />
+</svg> 

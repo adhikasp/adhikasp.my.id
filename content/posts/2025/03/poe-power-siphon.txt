@@ -1,0 +1,8 @@
+tell me in detail about power siphon build. Focus on discussion related to power siphone and not other.
+
+for each reddit thread get all 400 comment with 4 depth
+
+- https://www.reddit.com/r/PathOfExileBuilds/comments/1iwudz7/its_been_3_days_review_your_league_event_starter/
+- https://www.reddit.com/r/PathOfExileBuilds/comments/1j0jry0/league_been_out_for_a_bit_now_opinions_on_biggest
+- https://www.reddit.com/r/PathOfExileBuilds/comments/1j0pe3t/starting_the_phracia_event_today_what_are_some/ 
+- https://www.reddit.com/r/PathOfExileBuilds/comments/1ixao8j/successfull_starter_builds/

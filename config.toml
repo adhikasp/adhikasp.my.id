@@ -16,6 +16,7 @@ render = 'always'
 
 [params]
 subtitle = "Collection of thoughts"
+description = "Personal site of Adhika Setya Pramudita: software engineering, data, notes, projects."
 mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
 featherIconsCDN = true

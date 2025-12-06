@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sunny Corner Market | Neighborhood Convenience Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Sunny Corner Market is an independently owned neighborhood convenience store offering snacks, drinks, essentials, and local favorites."
+  />
+  <style>
+    :root {
+      --primary: #1c7c54;
+      --primary-soft: #e5f5ee;
+      --accent: #ffb74d;
+      --dark: #1f2933;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --shadow-subtle: 0 6px 20px rgba(15, 23, 42, 0.1);
+      --transition-fast: 0.18s ease-out;
+      --transition: 0.24s ease;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e0f7f1 0, #f9fafb 40%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Nav */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(249, 250, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 160deg,
+        #1c7c54,
+        #3ba776,
+        #ffb74d,
+        #ff8a4a,
+        #1c7c54
+      );
+      position: relative;
+      box-shadow: 0 0 0 3px rgba(229, 246, 237, 0.9);
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #c9f0dc);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      background: none;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast),
+        border-color var(--transition-fast), color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #256f57);
+      color: #ffffff;
+      box-shadow: 0 14px 32px rgba(28, 124, 84, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(28, 124, 84, 0.55);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--dark);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-icon {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      padding: 0.4rem;
+      border-radius: 999px;
+      background: rgba(229, 231, 235, 0.9);
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      position: relative;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      border-radius: inherit;
+      background: inherit;
+      transition: transform var(--transition-fast), opacity var(--transition-fast),
+        top var(--transition-fast), bottom var(--transition-fast);
+    }
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+    .nav-toggle span::after {
+      bottom: -6px;
+    }
+
+    .nav-toggle.open span {
+      background: transparent;
+    }
+
+    .nav-toggle.open span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle.open span::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 3.5rem 0 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-kicker-pill {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #16a34a);
+      box-shadow: 0 0 0 6px rgba(187, 247, 208, 0.8);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
+      color: var(--dark);
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--primary), #2dd4bf, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .hero-badge {
+      font-size: 0.76rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(134, 239, 172, 0.7);
+    }
+
+    /* Hero card */
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #e3faf3 0, #ffffff 55%);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(209, 213, 219, 0.8);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.18), transparent 70%);
+      top: -40px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 0.75rem;
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(187, 247, 208, 0.9);
+    }
+
+    .status-pill.closed {
+      background: rgba(248, 113, 113, 0.12);
+      color: #b91c1c;
+    }
+
+    .status-pill.closed .status-dot {
+      background: #f97373;
+      box-shadow: 0 0 0 4px rgba(254, 226, 226, 0.9);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .hero-card-item {
+      padding: 0.7rem 0.8rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(209, 213, 219, 0.7);
+    }
+
+    .hero-card-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-value {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px dashed rgba(156, 163, 175, 0.7);
+      padding-top: 0.9rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-icons {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .hero-icon-pill {
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      font-size: 0.76rem;
+    }
+
+    /* Sections */
+
+    .section {
+      padding: 2.5rem 0;
+    }
+
+    @media (min-width: 900px) {
+      .section {
+        padding: 3rem 0;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title-group {
+      max-width: 32rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* About */
+
+    .about-layout {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+    }
+
+    .about-main {
+      background: rgba(255, 255, 255, 0.96);
+      padding: 1.5rem 1.6rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .about-main p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .about-main strong {
+      color: var(--dark);
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.1rem;
+    }
+
+    .about-tag {
+      font-size: 0.86rem;
+      padding: 0.6rem 0.7rem;
+      border-radius: 12px;
+      background: #f3f4f6;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--dark);
+    }
+
+    .about-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .about-side {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pill-card {
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: rgba(255, 255, 255, 0.96);
+      font-size: 0.9rem;
+    }
+
+    .pill-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .pill-list {
+      list-style: none;
+      margin-top: 0.4rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .pill-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: 700;
+      display: inline-block;
+      width: 0.9em;
+      margin-left: -0.5em;
+    }
+
+    /* Highlights / Products */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem 1.2rem;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 10px 26px rgba(148, 163, 184, 0.18);
+      transition: transform var(--transition), box-shadow var(--transition),
+        border-color var(--transition), background var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+      border-color: rgba(52, 211, 153, 0.5);
+      background: #ffffff;
+    }
+
+    .card-pill {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .card-taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+    }
+
+    .tag {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: var(--muted);
+    }
+
+    .card-corner {
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle at top left, #fef3c7, transparent 60%);
+    }
+
+    /* Deals */
+
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .deal-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.1rem 1.2rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deal-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .deal-name {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .deal-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .deal-price {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .deal-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .deal-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      background: rgba(254, 243, 199, 0.95);
+      color: #92400e;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(251, 191, 36, 0.6);
+    }
+
+    /* Visit / Hours */
+
+    .visit-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .visit-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .hours-card {
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.3rem;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
+    .hours-list {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+    }
+
+    .hours-day {
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .visit-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem 1.1rem;
+      background: linear-gradient(135deg, #eff6ff, #ecfdf5);
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder {
+      margin-top: 0.7rem;
+      height: 180px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      background-image: linear-gradient(
+          135deg,
+          rgba(148, 163, 184, 0.12) 25%,
+          transparent 25%
+        ),
+        linear-gradient(
+          225deg,
+          rgba(148, 163, 184, 0.12) 25%,
+          transparent 25%
+        ),
+        linear-gradient(
+          45deg,
+          rgba(148, 163, 184, 0.12) 25%,
+          transparent 25%
+        ),
+        linear-gradient(
+          315deg,
+          rgba(148, 163, 184, 0.12) 25%,
+          #f3f4f6 25%
+        );
+      background-position: 16px 0, 16px 0, 0 0, 0 0;
+      background-size: 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.8rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .map-pin {
+      font-size: 1.2rem;
+      margin-right: 0.35rem;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.4rem 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .form-field label {
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .form-field small {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      border-radius: 10px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      padding: 0.5rem 0.6rem;
+      font: inherit;
+      background: #f9fafb;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .form-textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: rgba(52, 211, 153, 1);
+      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.5),
+        0 8px 18px rgba(34, 197, 94, 0.25);
+      background: #ffffff;
+    }
+
+    .contact-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-meta-block {
+      padding: 1rem 1rem;
+      border-radius: 14px;
+      background: #f9fafb;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .contact-meta-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-meta strong {
+      color: var(--dark);
+    }
+
+    /* Footer */
+
+    .footer {
+      border-top: 1px solid rgba(229, 231, 235, 0.9);
+      padding: 1.4rem 0 2rem;
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .social-pill {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      background: #f9fafb;
+      cursor: default;
+    }
+
+    /* Responsive nav */
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        inset: 100% 0 auto 0;
+        background: rgba(249, 250, 251, 0.97);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+        padding: 0.75rem 1.5rem 0.7rem;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 1.8rem;
+      }
+    }
+
+    /* Utilities */
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav" aria-label="Main navigation">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true"></div>
+        SUNNY<span>CORNER</span>
+      </div>
+
+      <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#highlights">What We Carry</a>
+        <a href="#deals">Deals</a>
+        <a href="#visit">Visit Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn btn-outline" type="button">
+          <span class="btn-icon">📍</span> Get Directions
+        </button>
+        <button class="btn btn-primary" type="button">
+          <span class="btn-icon">📞</span> Call the Store
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <div class="hero-kicker-pill" aria-hidden="true"></div>
+            Independently Owned Convenience Store
+          </div>
+          <h1 class="hero-title">
+            Your <span>corner store</span> for quick stops and familiar faces.
+          </h1>
+          <p class="hero-subtitle">
+            Sunny Corner Market has been serving the neighborhood with snacks,
+            drinks, daily essentials, and a friendly smile since 2012. Drop by
+            on your way home or between errands.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#visit" class="btn btn-primary">
+              Visit today
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </a>
+            <a href="#highlights" class="btn btn-outline">
+              Browse what we carry
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>
+              <span class="hero-dot"></span>
+              Family owned & operated
+            </span>
+            <span>
+              🕒 Open late every day
+            </span>
+            <span class="hero-badge">
+              Supporting local brands
+            </span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Store summary">
+          <div class="hero-card-header">
+            <div>
+              <div class="hero-card-title">Sunny Corner Market</div>
+              <div style="font-size: 0.82rem; color: var(--muted);">
+                128 Maple Street · Just off Oak Avenue
+              </div>
+            </div>
+            <div class="status-pill" id="open-status">
+              <span class="status-dot"></span>
+              <span id="open-status-text">Open now</span>
+            </div>
+          </div>
+
+          <div class="hero-card-grid">
+            <div class="hero-card-item">
+              <div class="hero-card-label">Today&apos;s hours</div>
+              <div class="hero-card-value" id="today-hours">
+                7:00 AM – 11:00 PM
+              </div>
+            </div>
+            <div class="hero-card-item">
+              <div class="hero-card-label">Contact</div>
+              <div class="hero-card-value">
+                (555) 013-2245
+              </div>
+            </div>
+            <div class="hero-card-item">
+              <div class="hero-card-label">Quick stops</div>
+              <div class="hero-card-value">
+                Snacks · Drinks · Essentials
+              </div>
+            </div>
+            <div class="hero-card-item">
+              <div class="hero-card-label">Since</div>
+              <div class="hero-card-value">
+                2012 · Family owned
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div>
+              <strong style="color: var(--dark); font-size: 0.85rem;">
+                Need something fast?
+              </strong>
+              <div>
+                Swing by during your commute. In and out in under 5 minutes.
+              </div>
+            </div>
+            <div class="hero-icons" aria-hidden="true">
+              <div class="hero-icon-pill">🥤</div>
+              <div class="hero-icon-pill">🍜</div>
+              <div class="hero-icon-pill">🧻</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-kicker">About the store</div>
+            <h2 class="section-title">More than a quick stop.</h2>
+            <p class="section-subtitle">
+              Sunny Corner Market started as a tiny single-aisle shop and has
+              grown into a neighborhood staple. We&apos;re independent,
+              community-focused, and always happy to help you find what you
+              need.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-main">
+            <p>
+              We&apos;re a locally owned convenience store that knows most of
+              our customers by name. Whether it&apos;s a late-night snack run,
+              a last-minute ingredient, or a cold drink on a hot day, we&aposre
+              here for all the everyday moments.
+            </p>
+            <p>
+              Our shelves carry a mix of trusted national brands and
+              <strong>local favorites</strong> from small producers. We keep our
+              layout simple, so you can get in, find what you need, and be on
+              your way in minutes.
+            </p>
+            <p>
+              Behind the counter is the same family that opened the doors in
+              2012. We believe in friendly service, fair prices, and making sure
+              everyone who walks in feels welcome.
+            </p>
+
+            <div class="about-highlights" aria-label="Store highlights">
+              <div class="about-tag">
+                <span class="about-dot" aria-hidden="true"></span>
+                Independently owned, not a chain
+              </div>
+              <div class="about-tag">
+                <span class="about-dot" aria-hidden="true"></span>
+                Stocked daily for freshness
+              </div>
+              <div class="about-tag">
+                <span class="about-dot" aria-hidden="true"></span>
+                Friendly staff that actually lives nearby
+              </div>
+            </div>
+          </article>
+
+          <aside class="about-side">
+            <div class="pill-card">
+              <div class="pill-card-title">Quick facts</div>
+              <ul class="pill-list">
+                <li>Average visit: under 5 minutes</li>
+                <li>New arrivals every week</li>
+                <li>Card & contactless payments accepted</li>
+                <li>Step-free entrance for easy access</li>
+              </ul>
+            </div>
+
+            <div class="pill-card">
+              <div class="pill-card-title">Customers stop by for</div>
+              <ul class="pill-list">
+                <li>Morning coffee and pastries</li>
+                <li>Cold drinks and ice cream</li>
+                <li>Last-minute pantry items</li>
+                <li>Lottery tickets and top-ups</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights / Products -->
+    <section class="section" id="highlights">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-kicker">What we carry</div>
+            <h2 class="section-title">Everyday essentials, all in one stop.</h2>
+            <p class="section-subtitle">
+              A small footprint with a carefully chosen selection of items, so
+              you don&apos;t have to walk through endless aisles to find the
+              basics.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3" aria-label="Categories of products we carry">
+          <article class="card">
+            <div class="card-pill">Snacks & drinks</div>
+            <h3 class="card-title">Grab-and-go favorites</h3>
+            <p class="card-body">
+              Chips, chocolate, candy, cookies, sodas, energy drinks, and more.
+              Perfect for movie nights, study sessions, or late-night cravings.
+            </p>
+            <div class="card-taglist">
+              <span class="tag">Cold beverages</span>
+              <span class="tag">Ice cream</span>
+              <span class="tag">Instant noodles</span>
+            </div>
+            <div class="card-corner" aria-hidden="true"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-pill">Home & pantry</div>
+            <h3 class="card-title">Essentials when you need them</h3>
+            <p class="card-body">
+              Bread, milk, eggs, canned goods, toiletries, cleaning basics, and
+              other everyday items that keep the household running.
+            </p>
+            <div class="card-taglist">
+              <span class="tag">Milk & eggs</span>
+              <span class="tag">Rice & pasta</span>
+              <span class="tag">Toiletries</span>
+            </div>
+            <div class="card-corner" aria-hidden="true"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-pill">Local picks</div>
+            <h3 class="card-title">Neighborhood favorites</h3>
+            <p class="card-body">
+              Snacks from local bakeries, small-batch sauces, and seasonal items
+              from nearby producers who share our love for the community.
+            </p>
+            <div class="card-taglist">
+              <span class="tag">Local coffee</span>
+              <span class="tag">Baked goods</span>
+              <span class="tag">Small-batch treats</span>
+            </div>
+            <div class="card-corner" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deals -->
+    <section class="section" id="deals">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-kicker">Weekly deals</div>
+            <h2 class="section-title">Small savings that add up.</h2>
+            <p class="section-subtitle">
+              Stop in for simple, rotating offers on the items people buy most.
+              No membership cards, no apps, no sign-ups—just straightforward
+              prices.
+            </p>
+          </div>
+        </div>
+
+        <div class="deals-grid" aria-label="Sample promotions">
+          <article class="deal-card">
+            <div class="deal-tag">Popular</div>
+            <div class="deal-label">Morning combo</div>
+            <div class="deal-name">Coffee & pastry</div>
+            <div class="deal-meta">
+              Any hot coffee plus a fresh pastry from our local bakery partner.
+            </div>
+            <div class="deal-price">$3.75</div>
+            <div class="deal-note">Available 7:00 – 10:30 AM daily.</div>
+          </article>
+
+          <article class="deal-card">
+            <div class="deal-label">Quick dinner fix</div>
+            <div class="deal-name">Noodles & drink</div>
+            <div class="deal-meta">
+              Two packs of instant noodles plus any canned or bottled drink.
+            </div>
+            <div class="deal-price">$4.20</div>
+            <div class="deal-note">Perfect for late-night study sessions.</div>
+          </article>
+
+          <article class="deal-card">
+            <div class="deal-label">Neighborhood special</div>
+            <div class="deal-name">Local snack pack</div>
+            <div class="deal-meta">
+              A mix of locally made chips, cookies, and sweets bundled together.
+            </div>
+            <div class="deal-price">$5.50</div>
+            <div class="deal-note">Limited quantities. Selection may vary.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit us -->
+    <section class="section" id="visit">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-kicker">Visit us</div>
+            <h2 class="section-title">Easy to find, hard to forget.</h2>
+            <p class="section-subtitle">
+              Located just off the main road with plenty of street parking and
+              a clear, well-lit storefront. You can spot us by the green awning
+              and warm lights in the window.
+            </p>
+          </div>
+        </div>
+
+        <div class="visit-layout">
+          <div class="hours-card" aria-label="Opening hours">
+            <h3 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.4rem;">
+              Opening hours
+            </h3>
+            <ul class="hours-list">
+              <li>
+                <span class="hours-day">Monday – Friday</span>
+                <span>7:00 AM – 11:00 PM</span>
+              </li>
+              <li>
+                <span class="hours-day">Saturday</span>
+                <span>8:00 AM – 11:00 PM</span>
+              </li>
+              <li>
+                <span class="hours-day">Sunday</span>
+                <span>8:00 AM – 10:00 PM</span>
+              </li>
+              <li>
+                <span class="hours-day">Holidays</span>
+                <span>Check window notice</span>
+              </li>
+            </ul>
+            <p class="visit-note">
+              Times may vary slightly on major holidays. When in doubt, give us
+              a quick call before you head over.
+            </p>
+          </div>
+
+          <div class="map-card">
+            <h3 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.2rem;">
+              Where to find us
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">
+              <strong>Sunny Corner Market</strong><br />
+              128 Maple Street<br />
+              Right next to the laundromat and across from Oak Park.
+            </p>
+            <div class="map-placeholder">
+              <div>
+                <div style="margin-bottom: 0.4rem;">
+                  <span class="map-pin" aria-hidden="true">📍</span>
+                  Map placeholder
+                </div>
+                <div>
+                  Insert a map or directions widget here when integrating into
+                  your site.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Questions, requests, or feedback?</h2>
+            <p class="section-subtitle">
+              Reach out if you&apos;re looking for a specific product, want to
+              suggest a new item, or need to double-check our hours before you
+              visit.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form" id="contact-form" novalidate>
+            <h3
+              style="
+                font-size: 1rem;
+                color: var(--dark);
+                margin-bottom: 0.7rem;
+              "
+            >
+              Send us a quick note
+            </h3>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  class="form-input"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="form-input"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="reason">Reason for reaching out</label>
+                <select
+                  id="reason"
+                  name="reason"
+                  class="form-select"
+                  aria-label="Reason for contacting the store"
+                >
+                  <option value="">Select one</option>
+                  <option>Ask about a product</option>
+                  <option>Request a new item</option>
+                  <option>Check stock or pricing</option>
+                  <option>Share feedback</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
+                placeholder="Write your message here..."
+              ></textarea>
+              <small>
+                This is a demo form. In a real site, this would send your
+                message to the store owner.
+              </small>
+            </div>
+
+            <div style="margin-top: 0.9rem; display: flex; justify-content: flex-end;">
+              <button class="btn btn-primary" type="submit">
+                Send message
+              </button>
+            </div>
+
+            <p
+              id="form-status"
+              style="
+                font-size: 0.8rem;
+                color: var(--muted);
+                margin-top: 0.6rem;
+              "
+              aria-live="polite"
+            ></p>
+          </form>
+
+          <aside class="contact-meta">
+            <div class="contact-meta-block">
+              <div class="contact-meta-title">Call or text</div>
+              <p>
+                <strong>Phone:</strong> (555) 013-2245<br />
+                <strong>Text:</strong> (555) 013-2246
+              </p>
+              <p style="margin-top: 0.4rem;">
+                During busy hours, we may be helping customers at the register.
+                If we miss your call, feel free to text and we&apos;ll respond
+                when it&apos;s safe to do so.
+              </p>
+            </div>
+
+            <div class="contact-meta-block">
+              <div class="contact-meta-title">Stay in the loop</div>
+              <p>
+                We occasionally post updates about new products, holiday hours,
+                and special promotions on our social channels.
+              </p>
+              <p style="margin-top: 0.4rem;">
+                <strong>Instagram:</strong> @sunnycornermarket<br />
+                <strong>Facebook:</strong> /sunnycornermarket
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> Sunny Corner Market. Independently owned.
+      </div>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+        <span aria-hidden="true">·</span>
+        <a href="#visit">Hours &amp; location</a>
+        <span aria-hidden="true">·</span>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social" aria-label="Social links (placeholder)">
+        <div class="social-pill" title="Instagram">IG</div>
+        <div class="social-pill" title="Facebook">Fb</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Basic "open now" indicator based on local time
+    (function () {
+      var statusPill = document.getElementById("open-status");
+      var statusText = document.getElementById("open-status-text");
+
+      if (!statusPill || !statusText) return;
+
+      var now = new Date();
+      var day = now.getDay(); // 0 = Sunday
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+
+      function toMinutes(h, m) {
+        return h * 60 + m;
+      }
+
+      var currentMinutes = toMinutes(hour, minute);
+      var openMinutes;
+      var closeMinutes;
+
+      // Simple schedule mirroring section text
+      if (day >= 1 && day <= 5) {
+        // Mon–Fri: 7am – 11pm
+        openMinutes = toMinutes(7, 0);
+        closeMinutes = toMinutes(23, 0);
+      } else if (day === 6) {
+        // Saturday: 8am – 11pm
+        openMinutes = toMinutes(8, 0);
+        closeMinutes = toMinutes(23, 0);
+      } else {
+        // Sunday: 8am – 10pm
+        openMinutes = toMinutes(8, 0);
+        closeMinutes = toMinutes(22, 0);
+      }
+
+      var isOpen =
+        currentMinutes >= openMinutes && currentMinutes < closeMinutes;
+
+      if (!isOpen) {
+        statusPill.classList.add("closed");
+        statusText.textContent = "Closed now";
+      } else {
+        statusPill.classList.remove("closed");
+        statusText.textContent = "Open now";
+      }
+    })();
+
+    // Mobile navigation toggle
+    (function () {
+      var toggle = document.querySelector(".nav-toggle");
+      var navLinks = document.getElementById("nav-links");
+
+      if (!toggle || !navLinks) return;
+
+      toggle.addEventListener("click", function () {
+        var isOpen = navLinks.classList.toggle("open");
+        toggle.classList.toggle("open", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      // Close nav when clicking a link (mobile)
+      navLinks.addEventListener("click", function (event) {
+        if (event.target.tagName.toLowerCase() === "a") {
+          navLinks.classList.remove("open");
+          toggle.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    })();
+
+    // Smooth scrolling enhancement for older browsers
+    (function () {
+      var links = document.querySelectorAll('a[href^="#"]');
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var targetId = this.getAttribute("href").substring(1);
+          var target = document.getElementById(targetId);
+          if (!target) return;
+
+          // Let native behavior handle if scrollBehavior is supported
+          if ("scrollBehavior" in document.documentElement.style) {
+            return;
+          }
+
+          event.preventDefault();
+
+          var rect = target.getBoundingClientRect();
+          var offset = window.pageYOffset + rect.top - 72;
+
+          window.scrollTo({
+            top: offset,
+            left: 0
+          });
+        });
+      });
+    })();
+
+    // Simple demo contact form handler
+    (function () {
+      var form = document.getElementById("contact-form");
+      var status = document.getElementById("form-status");
+      if (!form || !status) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var name = form.elements["name"].value.trim();
+        var message = form.elements["message"].value.trim();
+
+        if (!name && !message) {
+          status.textContent =
+            "Add at least your name or a short message so we know how to respond.";
+          return;
+        }
+
+        status.textContent =
+          "Thanks for reaching out! This demo form doesn’t send data, " +
+          "but on a live site your message would be delivered to the shop owner.";
+        form.reset();
+      });
+    })();
+
+    // Set current year in footer
+    (function () {
+      var yearSpan = document.getElementById("year");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>

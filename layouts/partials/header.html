@@ -39,8 +39,10 @@
 	{{- end }}
 
 	{{- /* Social preview image fallback (used when a page sets no featured image) */ -}}
-	<meta property="og:image" content="{{ .Site.BaseURL }}favicon.svg" />
-	<meta name="twitter:image" content="{{ .Site.BaseURL }}favicon.svg" />
+	<meta property="og:image" content="{{ .Site.BaseURL }}images/og-image.png" />
+	<meta property="og:image:width" content="630" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:image" content="{{ .Site.BaseURL }}images/og-image.png" />
 
 	{{- template "_internal/schema.html" . -}}
 	{{- template "_internal/opengraph.html" . -}}

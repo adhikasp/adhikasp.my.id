@@ -2,7 +2,7 @@ baseURL = "https://adhikasp.my.id/"
 languageCode = "en-us"
 title = "Adhika Setya Pramudita"
 theme = "ink-free"
-enableRobotsTXT = true
+enableRobotsTXT = false
 tableOfContents = true
 enableGitInfo = true
 

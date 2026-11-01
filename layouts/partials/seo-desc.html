@@ -1,0 +1,13 @@
+{{- /* Plain-text, single-line, <=160 char description for meta tags and list teasers. */ -}}
+{{- $d := "" -}}
+{{- if .IsHome -}}
+	{{- $d = .Site.Params.description | default .Site.Params.subtitle -}}
+{{- else if eq .Kind "term" -}}
+	{{- $d = printf "Posts tagged %s on %s" .Title .Site.Title -}}
+{{- else -}}
+	{{- with .Description }}{{ $d = . }}{{ else }}{{ $d = .Summary }}{{ end -}}
+{{- end -}}
+{{- $d = $d | plainify | htmlUnescape | replaceRE `\s+` " " -}}
+{{- $d = strings.TrimSpace $d -}}
+{{- if not $d }}{{ $d = .Site.Params.description }}{{ end -}}
+{{- return (truncate 160 $d) -}}

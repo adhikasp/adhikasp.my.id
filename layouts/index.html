@@ -15,7 +15,7 @@
 						<div class="meta">
 							<div class="date">
 								<span class="day">{{ dateFormat "02" .Date }}</span>
-								<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d"
+								<span class="rest">{{ if hugo.Data.month }}{{ index hugo.Data.month (printf "%d"
 									.Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end
 									}}</span>
 							</div>
@@ -44,13 +44,7 @@
 								{{ end }}
 							</h4>
 							<span class="description">
-								{{ if isset .Params "description" }}
-								{{ .Description }}
-								{{ else if gt (len .RawContent) 120 }}
-								{{ slicestr .RawContent 0 120 }}...
-								{{ else }}
-								{{ .RawContent }}
-								{{ end }}
+								{{ partial "seo-desc.html" . }}
 							</span>
 						</div>
 					</div>

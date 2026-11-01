@@ -1,5 +1,5 @@
 baseURL = "https://adhikasp.my.id/"
-languageCode = "en-us"
+locale = "en-US"
 title = "Adhika Setya Pramudita"
 theme = "ink-free"
 enableRobotsTXT = false
@@ -21,7 +21,7 @@ mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
 featherIconsCDN = true
 maxTags = 5
-mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
+mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs"
 customcss = "mine.css"
 favicon = "/favicon.svg"
 Avatar = "/favicon.svg"

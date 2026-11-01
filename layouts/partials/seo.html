@@ -1,4 +1,4 @@
-{{- /* All <head> metadata: title, canonical, description, icons, Open Graph, Twitter, JSON-LD, Google tag. */ -}}
+{{- /* All <head> metadata: title, canonical, description, icons, Open Graph, Twitter, JSON-LD. */ -}}
 {{- $site := .Site -}}
 {{- $desc := partial "seo-desc.html" . -}}
 {{- $isArticle := and .IsPage (in (slice "posts" "link-blog" "notebook") .Section) -}}
@@ -16,9 +16,6 @@
 <meta name="theme-color" content="#6366f1" />
 {{- with .Params.tags }}
 <meta name="keywords" content="{{ delimit . ", " }}" />
-{{- end }}
-{{- with $site.Params.googleSiteVerification }}
-<meta name="google-site-verification" content="{{ . }}" />
 {{- end }}
 
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -66,9 +63,3 @@
 {{- with .Params.tags }}{{ $post = merge $post (dict "keywords" (delimit . ", ")) }}{{ end }}
 <script type="application/ld+json">{{ $post | jsonify | safeJS }}</script>
 {{- end }}
-
-{{- /* Google tag (GA4 / Ads). Set params.googleTagId = "G-XXXXXXXXXX" in config.toml to enable; production builds only. */ -}}
-{{- with $site.Params.googleTagId }}{{ if hugo.IsProduction }}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ . }}');</script>
-{{- end }}{{ end }}

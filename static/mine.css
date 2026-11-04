@@ -26,3 +26,33 @@ nav.social.nav {
 .post a:visited {
   color: #666666;
 }
+
+/* Mobile: site title wrapped onto two lines and overlapped itself because the
+   theme sets line-height: 0.2em on .site-title. */
+@media (max-width: 900px) {
+  .header .site-title {
+    line-height: 1.25;
+    margin: 0 0 6px 0;
+    font-size: 1.6rem;
+  }
+  .header .avatar {
+    margin: 0 16px 0 0;
+  }
+  .header .site-description {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .header nav.social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+}
+
+/* Never let content cause sideways scroll on phones */
+img, video, iframe { max-width: 100%; height: auto; }
+pre { overflow-x: auto; }
+@media (max-width: 900px) {
+  .header .site-description { display: block; }
+  .header .site-description nav.social { margin-left: 0; }
+}

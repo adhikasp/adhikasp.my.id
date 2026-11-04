@@ -1,6 +1,6 @@
 ---
 title: "From GPT to agents: how AI changed on Hacker News"
-date: 2026-11-05T00:20:00+08:00
+date: 2026-11-05T00:10:00+08:00
 description: "I queried 50 million Hacker News items to see how the AI conversation shifted since ChatGPT. It widened from the model to the tools around it, and then to the arguments about living with them."
 tags:
   - "llm"

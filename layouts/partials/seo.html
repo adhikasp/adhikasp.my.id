@@ -54,10 +54,13 @@
 <meta name="twitter:image" content="{{ $imgURL }}" />
 <meta name="twitter:image:alt" content="{{ $imgAlt }}" />
 
-{{- $person := dict "@type" "Person" "@id" (printf "%s#person" $site.Home.Permalink) "name" "Adhika Setya Pramudita" "url" $site.Home.Permalink "sameAs" (slice "https://stackoverflow.com/users/4504053/adhika-setya-pramudita" "https://linkedin.com/in/adhikasp" "https://github.com/adhikasp" "https://gitlab.com/adhikasp" "https://www.instagram.com/adhikasp/") }}
+{{- $person := dict "@type" "Person" "@id" (printf "%s#person" $site.Home.Permalink) "name" "Adhika Setya Pramudita" "url" $site.Home.Permalink "sameAs" (slice "https://stackoverflow.com/users/4504053/adhika-setya-pramudita" "https://linkedin.com/in/adhikasp" "https://github.com/adhikasp" "https://gitlab.com/adhikasp" "https://www.instagram.com/adhikasp/" "https://news.ycombinator.com/user?id=adhikasp" "https://dev.to/adhikasp") "jobTitle" "Lead Software Engineer" "worksFor" (dict "@type" "Organization" "name" "Grab" "url" "https://www.grab.com/") "knowsAbout" (slice "Software engineering" "Applied AI" "Large language models" "Model Context Protocol" "Data engineering" "Distributed systems") "description" "Adhika Setya Pramudita is a software engineer in Singapore building AI agents, MCP servers and data systems." }}
 {{- if .IsHome }}
 {{- $ws := dict "@type" "WebSite" "@id" (printf "%s#website" $site.Home.Permalink) "url" $site.Home.Permalink "name" $site.Title "description" $desc "inLanguage" "en" "publisher" (dict "@id" (index $person "@id")) }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $person $ws) | jsonify | safeJS }}</script>
+{{- else if eq .RelPermalink "/about/" }}
+{{- $pp := dict "@context" "https://schema.org" "@type" "ProfilePage" "url" .Permalink "name" "About Adhika Setya Pramudita" "description" $desc "inLanguage" "en" "mainEntity" $person }}
+<script type="application/ld+json">{{ $pp | jsonify | safeJS }}</script>
 {{- else if $isArticle }}
 {{- $post := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" .Title "description" $desc "url" .Permalink "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink) "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "image" $imgURL "inLanguage" "en" "wordCount" .WordCount "author" $person "publisher" $person }}
 {{- with .Params.tags }}{{ $post = merge $post (dict "keywords" (delimit . ", ")) }}{{ end }}

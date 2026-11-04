@@ -1,12 +1,13 @@
 ---
 title: "About"
+description: "About Adhika Setya Pramudita: Lead Software Engineer at Grab in Singapore, building AI agents, MCP servers and data systems."
 type: "page"
 sitemap:
   changefreq: weekly
   priority: 0.8
 ---
 
-Hey, I'm Adhika. I'm a software engineer driven by a passion for solving real-world problems by shipping products that users love. I enjoy building tech solution and applied AI products.
+Hey, I'm Adhika Setya Pramudita. I'm a software engineer based in Singapore driven by a passion for solving real-world problems by shipping products that users love. I enjoy building tech solution and applied AI products.
 
 Currently, I'm a Lead Software Engineer at Grab, where I create services that help millions of merchants across Southeast Asia grow their businesses. One of the most exciting projects I've co-owned is the [GrabMerchant Assistant](https://www.grab.com/sg/inside-grab/stories/grabx-ai-merchant-assistant/), an LLM-powered virtual advisor. I led the backend development, prompt engineering, and evaluation to bring it to life.
 

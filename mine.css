@@ -1,0 +1,58 @@
+.ipynb-button {
+  cursor: pointer;
+  color: #1a1a1a;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* highlight output text of jupyter notebook */
+.cell-output-text {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+nav.social.nav {
+  padding-top: 15px;
+}
+
+.post a:visited {
+  color: #666666;
+}
+
+/* Mobile: site title wrapped onto two lines and overlapped itself because the
+   theme sets line-height: 0.2em on .site-title. */
+@media (max-width: 900px) {
+  .header .site-title {
+    line-height: 1.25;
+    margin: 0 0 6px 0;
+    font-size: 1.6rem;
+  }
+  .header .avatar {
+    margin: 0 16px 0 0;
+  }
+  .header .site-description {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .header nav.social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+}
+
+/* Never let content cause sideways scroll on phones */
+img, video, iframe { max-width: 100%; height: auto; }
+pre { overflow-x: auto; }
+@media (max-width: 900px) {
+  .header .site-description { display: block; }
+  .header .site-description nav.social { margin-left: 0; }
+}

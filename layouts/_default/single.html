@@ -1,28 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-{{ partial "header.html" . }}
+{{ define "main" }}
+{{- $isPage := eq .Type "page" -}}
+{{- $plain := .Plain | replaceRE `\s+` " " -}}
+<article class="h-entry">
+	<header class="post-head">
+		<h1 class="p-name">{{ .Title }}</h1>
+		{{- if and (not $isPage) (eq .Section "posts") (ge (len .Description) 80) (not (strings.Contains $plain (substr .Description 0 40))) }}
+		<p class="lede">{{ .Description }}</p>
+		{{- end }}
+		{{- if not $isPage }}
+		<div class="meta-line">
+			<time class="dt-published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+			{{- if eq .Section "posts" }}
+			{{- $words := replaceRE `(?s)<div class="highlight">.*?</div>` "" .Content | countwords }}
+			<span aria-hidden="true">&middot;</span>
+			<span>{{ math.Max 1 (math.Ceil (div (float $words) .Site.Params.wpm)) | int }} min read</span>
+			{{- end }}
+		</div>
+		{{- with .Params.tags }}
+		<ul class="tags">
+			{{- range . }}<li><a class="p-category" href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}">{{ . }}</a></li>{{ end }}
+		</ul>
+		{{- end }}
+		{{- end }}
+	</header>
 
-<body>
+	{{- with .Params.link }}
+	<a class="link-source" href="{{ . }}" target="_blank" rel="noopener">{{ partial "icons/external-link.svg" $ }}<span>{{ . }}</span></a>
+	{{- end }}
 
+	{{- if and .Params.toc (gt .WordCount 400) (ne .Params.toc false) }}
+	<details class="toc">
+		<summary>On this page</summary>
+		{{ .TableOfContents }}
+	</details>
+	{{- end }}
 
-	{{ if and (gt .WordCount 400 ) (or (eq .Site.Params.toc "floating") (eq .Site.Params.toc "both") )}}
-	<div class="container-wide wrapper">
-		{{ partial "head.html" . }}
-
-		{{ partial "content_floating_toc.html" . }}
+	<div class="prose e-content">
+		{{ .Content }}
 	</div>
-	{{ else }}
-	<div class="container wrapper">
-		{{ partial "head.html" . }}
 
-		{{ partial "content_static.html" . }}
-	</div>
-	{{ end }}
-
-	{{ partial "footer.html" . }}
-	{{ if and (gt .WordCount 400 ) (or (eq .Site.Params.toc "floating") (eq .Site.Params.toc "both") )}}
-	{{ partial "toc_script.html" . }}
-	{{ end }}
-</body>
-
-</html>
+	{{- if not $isPage }}
+	<footer class="post-foot">
+		{{- if or .PrevInSection .NextInSection }}
+		<nav class="post-nav" aria-label="More posts">
+			{{- with .NextInSection }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><small>&larr; Newer</small>{{ .Title }}</a>{{ end }}
+			{{- with .PrevInSection }}<a class="next" href="{{ .RelPermalink }}" rel="next"><small>Older &rarr;</small>{{ .Title }}</a>{{ end }}
+		</nav>
+		{{- end }}
+		<a class="back" href="/">{{ partial "icons/arrow-left.svg" . }} All posts</a>
+	</footer>
+	{{- end }}
+</article>
+{{ end }}

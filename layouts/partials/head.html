@@ -1,38 +1,25 @@
-<div class="header">
-	{{ if .Site.Params.Avatar }}
-		<div class="avatar">
-			<a href="{{ .Site.BaseURL }}">
-				<img src="{{ .Site.Params.Avatar }}" alt="{{ .Site.Title }}" />
-			</a>
-		</div>
-	{{ end }}
-	<h1 class="site-title">
-        <a class="p-author h-card" href="https://adhikasp.my.id/">Adhika Setya Pramudita</a>
-    </h1>
-	<div class="site-description">
-		{{- if isset .Site.Params "subtitle" -}}
-		<p>{{ .Site.Params.Subtitle | markdownify }}</p>
-		{{- end -}}
-		<nav class="nav social">
-			<ul class="flat h-card">
-				{{- range $index, $key := .Site.Params.Social -}}
-					<li><a href="{{ $key.url }}" title="{{ $key.name }}" rel="me" class="u-url"><i data-feather="{{ $key.icon }}"></i></a></li>
-				{{- end -}}
-
-				{{- if or (eq .Site.Params.mode "auto") (eq .Site.Params.mode "dark") -}}
-                    <span class="scheme-toggle"><a href="#" id="scheme-toggle"></a>
-				{{- end -}}
+{{- /* Visible site header: brand, nav, theme toggle. */ -}}
+<header class="site-header">
+	<div class="inner">
+		<a class="brand p-author h-card" href="{{ .Site.BaseURL }}" rel="home">
+			<img src="{{ .Site.Params.Avatar }}" alt="" width="36" height="36" />
+			<span class="brand-text">
+				<span class="brand-name">{{ .Site.Title }}</span>
+				<span class="brand-tag">{{ .Site.Params.subtitle }}</span>
+			</span>
+		</a>
+		<nav class="site-nav" aria-label="Main">
+			<ul>
+				{{- $cur := strings.TrimSuffix "/" .RelPermalink -}}
+				{{- range .Site.Menus.main }}
+				{{- $u := strings.TrimSuffix "/" .URL }}
+				<li><a href="{{ .URL }}"{{ if eq $u $cur }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+				{{- end }}
 			</ul>
+			<button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+				<span class="icon-moon">{{ partial "icons/moon.svg" . }}</span>
+				<span class="icon-sun">{{ partial "icons/sun.svg" . }}</span>
+			</button>
 		</nav>
 	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			{{ range .Site.Menus.main }}
-			<li>
-				<a href="{{ .URL }}">{{ .Name }}</a>
-			</li>
-			{{ end }}
-		</ul>
-	</nav>
-</div>
+</header>

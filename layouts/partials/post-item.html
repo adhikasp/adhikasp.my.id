@@ -1,0 +1,21 @@
+{{- /* One row in a post list. */ -}}
+<li class="post-item h-entry">
+	<time class="dt-published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+	<div>
+		<h2 class="p-name"><a class="u-url" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}</h2>
+		{{- with partial "seo-desc.html" . }}<p class="summary p-summary">{{ . }}</p>{{ end }}
+		<div class="meta-line">
+			{{- if eq .Section "posts" }}
+			{{- $words := replaceRE `(?s)<div class="highlight">.*?</div>` "" .Content | countwords }}
+			<span>{{ math.Max 1 (math.Ceil (div (float $words) $.Site.Params.wpm)) | int }} min read</span>
+			{{- end }}
+			{{- with .Params.tags }}
+			<ul class="tags">
+				{{- range first 4 . }}
+				<li><a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}">{{ . }}</a></li>
+				{{- end }}
+			</ul>
+			{{- end }}
+		</div>
+	</div>
+</li>

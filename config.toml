@@ -19,10 +19,8 @@ subtitle = "Collection of thoughts"
 description = "Personal site of Adhika Setya Pramudita: software engineering, data, notes, projects."
 mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
-featherIconsCDN = true
 maxTags = 5
 mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs"
-customcss = "mine.css"
 favicon = "/favicon.svg"
 Avatar = "/favicon.svg"
 
@@ -35,9 +33,9 @@ unsafe = true
     guessSyntax = false
     hl_Lines = ""
     lineNoStart = 1
-    lineNos = true
+    lineNos = false
     lineNumbersInTable = false
-    style = "github"
+    noClasses = false
     tabWidth = 4
 
   [markup.tableOfContents]
@@ -54,7 +52,7 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "My other projects"
+name = "Projects"
 url = "/public-service"
 weight = 2
 

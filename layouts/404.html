@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Page not found - {{ .Site.Title }}</title>
-	<meta name="robots" content="noindex" />
-	<link rel="icon" href="/favicon.ico" sizes="32x32" />
-	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="/mine.css" />
-	<link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
-</head>
-<body>
-	<div class="container wrapper">
-		<h2 class="page-title">Page not found</h2>
-		<p>That page doesn't exist (anymore). Try the <a href="/">home page</a> or the <a href="/posts/">posts</a>.</p>
-	</div>
-</body>
-</html>
+{{ define "main" }}
+<div class="not-found">
+	<p class="code">404</p>
+	<h1 class="page-title">Page not found</h1>
+	<p class="page-lede">That page doesn't exist (anymore). Try the <a href="/">home page</a> or the <a href="/posts/">posts</a>.</p>
+</div>
+{{ end }}

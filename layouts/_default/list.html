@@ -1,45 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-{{ partial "header.html" . }}
-
-<body>
-	<div class="container wrapper list">
-		{{ partial "head.html" . }}
-
-		{{ if isset .Data "Term" }}
-			<h2>{{ .Data.Term }}</h2>
-		{{ else }}
-		<h2 class="page-title">{{ .Name }}</h2>
-		{{ end }}
-
-		<ul class="posts flat">
-			{{- range .Data.Pages -}}
-			{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
-			{{- else -}}
-			<li class="post">
-				<div class="post-header">
-					<div class="meta">
-						<div class="date">
-							<span class="day">{{ dateFormat "02" .Date }}</span>
-							<span class="rest">{{ if hugo.Data.month }}{{ index hugo.Data.month (printf "%d" .Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
-						</div>
-					</div>
-					<div class="matter">
-						<h4 class="title small">
-							<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a>
-						</h4>
-						<span class="description">
-							{{ partial "seo-desc.html" . }}
-						</span>
-					</div>
-				</div>
-			</li>
-			{{- end -}}
-			{{- end -}}
-		</ul>
-	</div>
-
-	{{ partial "footer.html" . }}
-</body>
-
-</html>
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+<ul class="post-list">
+	{{ range .Pages }}{{ partial "post-item.html" . }}{{ end }}
+</ul>
+{{ end }}

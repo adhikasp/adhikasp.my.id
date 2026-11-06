@@ -1,46 +1,37 @@
-<div class="footer wrapper">
-	<nav class="nav">
-		<div>{{ default 2024 .Date.Year}} {{ with .Site.Copyright }} {{ . | safeHTML }} {{ end }}</div>
-		<!-- <a href="https://github.com/chollinger93/ink-free">ink-free</a> theme on <a href="https://gohugo.io">Hugo</a></div> -->
-	</nav>
-</div>
+<footer class="site-footer">
+	<div class="inner">
+		<div>&copy; {{ now.Year }} {{ .Site.Title }}</div>
+		<ul class="social">
+			{{- range .Site.Params.Social }}
+			<li><a href="{{ .url }}" title="{{ .name }}" aria-label="{{ .name }}"{{ if ne .icon "rss" }} rel="me"{{ end }}>{{ partial (printf "icons/%s.svg" .icon) $ }}</a></li>
+			{{- end }}
+		</ul>
+	</div>
+</footer>
 
-{{- with .Site.Params.Social -}}
-<script>document.addEventListener("DOMContentLoaded", function () { feather.replace(); });</script>
-{{- end -}}
+<script>
+(function () {
+	var root = document.documentElement;
+	var btn = document.getElementById("theme-toggle");
+	if (!btn) return;
+	btn.addEventListener("click", function () {
+		var dark = root.getAttribute("data-theme") === "dark" ||
+			(!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+		var next = dark ? "light" : "dark";
+		root.setAttribute("data-theme", next);
+		try { localStorage.setItem("theme", next); } catch (e) {}
+	});
+})();
+</script>
 
 {{ if .Store.Get "hasMermaid" }}
-{{ $jsUrl:= default "https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs" .Site.Params.mermaidCDN }}
+{{ $jsUrl := default "https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs" .Site.Params.mermaidCDN }}
 <script type="module">
 	import mermaid from {{ $jsUrl }};
-
-	const getMermaidTheme = () => {
-		const savedScheme = localStorage.getItem('scheme');
-		if (savedScheme) {
-			return savedScheme === 'dark' ? 'dark' : 'default';
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	const isDark = () => {
+		const t = document.documentElement.getAttribute("data-theme");
+		return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
 	};
-
-	mermaid.initialize({
-		startOnLoad: true,
-		theme: getMermaidTheme()
-	});
-
-	const applyTheme = () => {
-		const newTheme = getMermaidTheme();
-		mermaid.initialize({
-			startOnLoad: true,
-			theme: newTheme
-		});
-	};
-
-	window.addEventListener('storage', (event) => {
-		if (event.key === 'scheme') {
-			applyTheme();
-		}
-	});
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+	mermaid.initialize({ startOnLoad: true, theme: isDark() ? "dark" : "default" });
 </script>
 {{ end }}

@@ -1,0 +1,23 @@
+{{- /* Fails the build when front matter that renders in the post list or <head> is
+       written too long. Hugo would otherwise silently cut it and leave an ellipsis
+       in the middle of a sentence, which is how the post-list teasers drifted.
+       Scope: pages in params.mainSections, i.e. what the lists actually show. */ -}}
+{{- if and .IsPage (in site.Params.mainSections .Section) -}}
+	{{- $maxDesc := 160 -}}
+	{{- $maxTitle := 70 -}}
+	{{- $file := "content" -}}
+	{{- with .File }}{{ $file = .Path }}{{ end -}}
+	{{- $desc := .Description | default "" | replaceRE `\s+` " " | strings.TrimSpace -}}
+	{{- $n := strings.RuneCount $desc -}}
+	{{- if not $desc -}}
+		{{- if not .Draft -}}
+			{{- errorf "lint: %s: missing `description:` — add one sentence (max %d chars); it is the post-list teaser and the meta description" $file $maxDesc -}}
+		{{- end -}}
+	{{- else if gt $n $maxDesc -}}
+		{{- errorf "lint: %s: description is %d chars, max %d — rewrite it shorter; list teasers are never truncated" $file $n $maxDesc -}}
+	{{- end -}}
+	{{- $t := strings.RuneCount .Title -}}
+	{{- if gt $t $maxTitle -}}
+		{{- errorf "lint: %s: title is %d chars, max %d — shorten it" $file $t $maxTitle -}}
+	{{- end -}}
+{{- end -}}

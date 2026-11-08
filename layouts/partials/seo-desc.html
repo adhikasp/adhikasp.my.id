@@ -1,11 +1,12 @@
-{{- /* Plain-text, single-line, <=160 char description for meta tags and list teasers. */ -}}
+{{- /* Plain-text, single-line, <=160 char description for meta tags. List teasers
+       use page-desc.html, which does not truncate. */ -}}
 {{- $d := "" -}}
 {{- if .IsHome -}}
 	{{- $d = .Site.Params.description | default .Site.Params.subtitle -}}
 {{- else if eq .Kind "term" -}}
 	{{- $d = printf "Posts tagged %s on %s" .Title .Site.Title -}}
 {{- else -}}
-	{{- with .Description }}{{ $d = . }}{{ else }}{{ $d = .Summary }}{{ end -}}
+	{{- $d = partial "page-desc.html" . -}}
 {{- end -}}
 {{- $d = $d | plainify | htmlUnescape | replaceRE `\s+` " " -}}
 {{- $d = strings.TrimSpace $d -}}

@@ -1,7 +1,6 @@
 ---
 title: "GSOC Phase 3 - Polishing aspect feature"
-description: "In this phase, I try to polish up feature so hopefully coala's
-aspect will became more sane to be used."
+description: "Polishing coala's aspect feature so it is sane to use: making the migration path easier for the bears that do not support aspects yet."
 tags:
   - "gsoc"
   - "software-development"

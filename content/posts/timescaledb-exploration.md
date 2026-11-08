@@ -1,7 +1,7 @@
 ---
 title: "Exploring TimescaleDB"
 date: 2022-02-20T18:22:58+07:00
-description: This is a simple exploration of TimescaleDB, a time-series database.
+description: "TimescaleDB vs MySQL and ScyllaDB for time series: one aggregation ran 6m52s on MySQL, 27s on raw TimescaleDB, 35ms on a continuous aggregate."
 tags:
   - "software-development"
   - "data"

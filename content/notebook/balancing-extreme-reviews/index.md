@@ -1,7 +1,7 @@
 ---
 title: "Balancing Extreme Reviews"
+description: "Ratings get averaged, but the people who bother to rate are the ones with strong opinions: a paper on mitigating participation bias."
 date: 2025-02-09T15:12:17+07:00
-description: "Imagine you're trying to figure out the best product to buy, the best hotel to book, or even the best teacher to take a class from, based on ratings. Often, these ratings get averaged together. However, what if some people don't leave a rating, especially if they have strong opinions? This can skew the average and give a misleading impression."
 tags: ["notebook", "data"]
 draft: true
 ---

@@ -8,6 +8,13 @@
 {{- with .Params.image }}{{ $img = . }}{{ else }}{{ with .Params.images }}{{ $img = index . 0 }}{{ end }}{{ end -}}
 {{- $imgURL := $img | absURL -}}
 {{- $imgAlt := cond (eq $img "images/og-image.png") "Adhika Setya Pramudita logo" $ogTitle -}}
+{{- /* Social cards need a raster; an SVG og:image renders as a broken preview. */ -}}
+{{- if findRE `(?i)\.svg(?:[?#].*)?$` $img -}}
+  {{- warnf "seo: %q is an SVG, which social platforms do not render; falling back to images/og-image.png (%s)" $img .Permalink -}}
+  {{- $img = "images/og-image.png" -}}
+  {{- $imgURL = $img | absURL -}}
+  {{- $imgAlt = "Adhika Setya Pramudita logo" -}}
+{{- end -}}
 <title>{{ $title }}</title>
 <link rel="canonical" href="{{ .Permalink }}" />
 <meta name="description" content="{{ $desc }}" />

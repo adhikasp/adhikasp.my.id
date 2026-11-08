@@ -1,5 +1,6 @@
 ---
 title: "Path of Exile Phrecia event builds"
+description: "Path of Exile Legacy of Phrecia introduces all-new ascendancies. Mining the subreddit discussions to see which builds stand out in the event."
 date: 2025-03-01T18:39:00+07:00
 ---
 

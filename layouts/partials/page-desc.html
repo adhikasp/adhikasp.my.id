@@ -1,0 +1,9 @@
+{{- /* Plain-text, single-line teaser for a post. Never truncated: the build lints
+       descriptions instead (layouts/partials/lint-page.html), so what renders here
+       is always the whole sentence the author wrote. */ -}}
+{{- $d := "" -}}
+{{- with .Description }}{{ $d = . }}{{ else }}{{ with .Summary }}{{ $d = . }}{{ end }}{{ end -}}
+{{- $d = $d | plainify | htmlUnescape | replaceRE `\s+` " " -}}
+{{- $d = strings.TrimSpace $d -}}
+{{- if not $d }}{{ $d = .Site.Params.description }}{{ end -}}
+{{- return $d -}}

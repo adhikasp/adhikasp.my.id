@@ -1,5 +1,6 @@
 ---
 title: "Running Stable Diffusion"
+description: "Notes on running Stable Diffusion 2.1 locally with diffusers, mamba and xformers, and the setup that worked."
 date: 2023-01-08T22:00:00+07:00
 draft: true
 ---

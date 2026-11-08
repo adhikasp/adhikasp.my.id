@@ -1,5 +1,6 @@
 ---
 title: "Simon Willison's Link Blog"
+description: "Simon Willison on maintaining a link blog: a curated collection of links with personal commentary, both a personal archive and a way to share discoveries."
 date: 2025-02-08
 link: "https://simonwillison.net/2024/Dec/22/link-blog/"
 tags: ["link-blog"]

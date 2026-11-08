@@ -1,7 +1,7 @@
 ---
 title: "Reviving Blog 2025"
 date: 2025-02-01T20:38:06+07:00
-description: Every software engineer have multiple iteration of their blog, including me.
+description: "Every blog of mine died with its host. This one came back on GitHub Pages in two commits, after the homelab that served it died in a brownout."
 tags:
   - "software-development"
 ---

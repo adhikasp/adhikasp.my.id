@@ -1,8 +1,6 @@
 ---
 title: "GSOC Phase 2 - Working MVP Coala Aspect"
-excerpt: "In phase 2, my target is to make aspect-based configuration *works*. 
-Maybe not with its full power and capabilities, but at least the core 
-foundation must ready in coala codebase and prove that aspect could run."
+description: "In phase 2 my target is to make aspect-based configuration work: not its full power yet, but enough foundation in coala to prove that an aspect can run."
 tags:
   - "gsoc"
   - "software-development"

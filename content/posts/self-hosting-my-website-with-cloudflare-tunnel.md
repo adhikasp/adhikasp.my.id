@@ -1,7 +1,7 @@
 ---
 title: "Self hosting my websites with Cloudflare Tunnel"
 date: 2023-01-07T18:22:58+07:00
-description: This site is served not from cloud or hosting service, but from a crappy consumer-grade desktop from 2008 that I store in my living room, with a Cloudflare Tunnel.
+description: "This site is served not from a cloud provider but from a consumer desktop from 2008 in my living room, through a Cloudflare Tunnel."
 tags:
   - "software-development"
   - "infrastructure"

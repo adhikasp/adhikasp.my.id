@@ -1,7 +1,7 @@
 ---
 title: "Alfamart vs Indomart dominance in Jakarta"
 date: 2025-02-09T15:12:17+07:00
-description: "Plotting the presence of Alfamart and Indomart in Jakarta as a heatmap"
+description: "Counting Alfamart and Indomart stores from OpenStreetMap, then plotting both chains in 1 km grid cells over a Jakarta basemap."
 tags: ["osm", "notebook", "data"]
 ---
 

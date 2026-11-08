@@ -1,7 +1,7 @@
 ---
 title: "Tailscale for Residential IP Forward Proxy in Cloud"
 date: 2025-02-08T21:34:39+07:00
-description: When you need to have a residential IP for your server, but you don't want to pay for it dedicated proxy service.
+description: "YouTube blocks the cloud IPs my chatbot runs on. Instead of a residential proxy, I used a Tailscale app connector to route only YouTube calls home."
 tags:
   - "software-development"
   - "infrastructure"

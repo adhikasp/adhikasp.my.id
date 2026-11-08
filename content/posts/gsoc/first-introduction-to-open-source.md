@@ -1,10 +1,6 @@
 ---
 title: "My Path into Open Source"
-excerpt: "This is just a rant on how I got stuck on Open Source community and
-loving it. 6 month ago, at about October 2016, I just a normal college student
-who love programming. Never create any productive or useful things. Now I am
-in the beginning to create a wonderful project with coala under Google Summer
-of Code program."
+description: "How I got stuck on the open source community and loving it: from a college student reading Hacker News to starting a coala project for Google Summer of Code."
 tags:
   - "software-development"
 date: 2017-05-12T00:00:00+07:00

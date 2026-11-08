@@ -1,8 +1,6 @@
 ---
 title: "Designing configuration for coala's aspect"
-excerpt: "With the emerge of aspect project in coala, come the need to redefine how
-configuration works and define various new parameter that should control how
-the aspect should run."
+description: "With the aspect project in coala came the need to redefine how configuration works, and which new parameters should control how an aspect runs."
 tags:
   - "gsoc"
   - "software-development"

@@ -1,8 +1,78 @@
-{{- if .Title -}}
+{{- /*
+  Markdown image render hook.
+
+  Raster and remote images pass through unchanged. SVGs get their intrinsic
+  size read from the file (width/height, falling back to viewBox) so the
+  browser reserves the right box before the vector loads, and a `.svg` class
+  so the stylesheet can scale them to the full prose column instead of
+  leaving a 480px diagram floating in a 672px column.
+
+  SVG lookup order: page bundle resource -> assets/ -> static/.
+*/ -}}
+{{- $dest := .Destination -}}
+{{- $alt := .Text -}}
+{{- $caption := .Title -}}
+{{- $isSVG := findRE `(?i)\.svg(?:[?#].*)?$` $dest 1 -}}
+
+{{- if $isSVG -}}
+  {{- $path := $dest | replaceRE `^/` "" | replaceRE `[?#].*$` "" -}}
+  {{- $svg := "" -}}
+  {{- with .Page.Resources.GetMatch $path -}}
+    {{- $svg = .Content -}}
+  {{- else -}}
+    {{- with resources.Get $path -}}
+      {{- $svg = .Content -}}
+    {{- else -}}
+      {{- $static := printf "static/%s" $path -}}
+      {{- if fileExists $static -}}
+        {{- $svg = os.ReadFile $static -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $w := 0 -}}
+  {{- $h := 0 -}}
+  {{- with findRE `(?s)<svg\b[^>]*>` $svg 1 -}}
+    {{- $tag := index . 0 -}}
+    {{- with findRESubmatch `\bwidth\s*=\s*["']([0-9.]+)` $tag 1 -}}
+      {{- $w = index (index . 0) 1 | float | math.Round | int -}}
+    {{- end -}}
+    {{- with findRESubmatch `\bheight\s*=\s*["']([0-9.]+)` $tag 1 -}}
+      {{- $h = index (index . 0) 1 | float | math.Round | int -}}
+    {{- end -}}
+    {{- if or (eq $w 0) (eq $h 0) -}}
+      {{- with findRESubmatch `\bviewBox\s*=\s*["'][-0-9.]+[\s,]+[-0-9.]+[\s,]+([0-9.]+)[\s,]+([0-9.]+)` $tag 1 -}}
+        {{- $m := index . 0 -}}
+        {{- if eq $w 0 }}{{ $w = index $m 1 | float | math.Round | int }}{{ end -}}
+        {{- if eq $h 0 }}{{ $h = index $m 2 | float | math.Round | int }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $attrs := printf `src="%s" alt="%s" class="svg"` ($dest | safeURL) $alt -}}
+  {{- if and $w $h -}}
+    {{- $attrs = printf `%s width="%d" height="%d"` $attrs $w $h -}}
+  {{- end -}}
+  {{- if eq .Ordinal 0 -}}
+    {{- $attrs = printf `%s fetchpriority="high"` $attrs -}}
+  {{- else -}}
+    {{- $attrs = printf `%s loading="lazy"` $attrs -}}
+  {{- end -}}
+  {{- $attrs = printf `%s decoding="async"` $attrs -}}
+
+  {{- if $caption -}}
+<figure class="svg-figure">
+	<img {{ $attrs | safeHTMLAttr }}>
+	<figcaption>{{ $caption }}</figcaption>
+</figure>
+  {{- else -}}
+<img {{ $attrs | safeHTMLAttr }}>
+  {{- end -}}
+{{- else if $caption -}}
 <figure>
-	<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
-	<figcaption>{{ .Title }}</figcaption>
+	<img src="{{ $dest | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+	<figcaption>{{ $caption }}</figcaption>
 </figure>
 {{- else -}}
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
+<img src="{{ $dest | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
 {{- end -}}

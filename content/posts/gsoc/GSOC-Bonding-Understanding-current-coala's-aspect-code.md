@@ -1,9 +1,6 @@
 ---
 title: "GSOC Bonding - Understanding current coala's aspect code"
-description: "Even though aspect
-project in coala still in its infancy, there are already 
-exist a basic prototype of itself in coala codebase. Today, I'll dive into
-these code and try to analyze the core part about aspect."
+description: "coala's aspect project is still in its infancy, but a prototype already exists in the codebase. Diving into that code to analyse the core part about aspect."
 tags:
   - "gsoc"
   - "software-development"

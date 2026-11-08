@@ -1,7 +1,7 @@
 ---
 title: "The top Hacker News story of every day, 2007 to 2026"
 date: 2026-11-06T12:00:00+08:00
-description: "I took the single highest-scored story from each of 7,177 days of Hacker News. The typical top story doubled in points over a decade, the biggest days are mostly deaths and outages, and a quarter of today's are about AI."
+description: "One highest-scored story per day, across 7,177 days of Hacker News. Top stories doubled in points over a decade, and a quarter of today's are about AI."
 tags:
   - "hackernews"
   - "data"

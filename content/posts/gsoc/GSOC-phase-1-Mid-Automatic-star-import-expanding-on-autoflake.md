@@ -1,9 +1,6 @@
 ---
 title: "GSOC Phase 1 Mid - Automatic star import expanding on autoflake"
-description: "In this week, I was writting a patch
-into autoflake for a new feature that
-could expand a wildcard import to specify each name that really was used in the
-code."
+description: "A patch to autoflake that expands a wildcard import into the names the code actually uses, and what that buys coala's aspects."
 tags:
   - "gsoc"
   - "software-development"

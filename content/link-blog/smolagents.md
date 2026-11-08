@@ -1,5 +1,6 @@
 ---
 title: "Smolagents"
+description: "Smolagents does its function calling as part of code execution, with a Python runtime inside the agent's chain of thought, instead of predefined calls."
 date: 2025-02-11T18:40:07+07:00
 type: "link-blog"
 link: "https://github.com/huggingface/smolagents"

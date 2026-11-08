@@ -1,0 +1,40 @@
+{{- /*
+  Inline an SVG into the page instead of linking it.
+
+    {{< svg "images/diagram.svg" >}}
+    {{< svg "images/diagram.svg" caption="What this shows" >}}
+
+  Inlined vectors inherit the page's CSS (currentColor, fonts) and cost no
+  extra request. The file is looked up as a page bundle resource first, then
+  assets/, then static/.
+*/ -}}
+{{- $path := .Get 0 | default (.Get "src") -}}
+{{- if not $path -}}
+  {{- errorf "svg shortcode: missing path in %s" .Page.File.Path -}}
+{{- end -}}
+{{- $caption := .Get "caption" | default (.Get 1) -}}
+{{- $clean := $path | replaceRE `^/` "" | replaceRE `[?#].*$` "" -}}
+{{- $svg := "" -}}
+{{- with .Page.Resources.GetMatch $clean -}}
+  {{- $svg = .Content -}}
+{{- else -}}
+  {{- with resources.Get $clean -}}
+    {{- $svg = .Content -}}
+  {{- else -}}
+    {{- $static := printf "static/%s" $clean -}}
+    {{- if fileExists $static -}}
+      {{- $svg = os.ReadFile $static -}}
+    {{- else -}}
+      {{- errorf "svg shortcode: %q not found as page resource, asset or static file (page %s)" $path .Page.File.Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $svg = $svg | replaceRE `(?s)^\s*<\?xml[^>]*\?>\s*` "" | replaceRE `(?s)^\s*<!--.*?-->\s*` "" -}}
+{{- if $caption -}}
+<figure class="svg-figure svg-inline">
+	{{ $svg | safeHTML }}
+	<figcaption>{{ $caption }}</figcaption>
+</figure>
+{{- else -}}
+<div class="svg-inline">{{ $svg | safeHTML }}</div>
+{{- end -}}

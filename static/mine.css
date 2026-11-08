@@ -340,14 +340,22 @@ pre {
 /* ---------- Media ---------- */
 
 .prose img { margin: 1.5rem auto; border-radius: 8px; }
-/* SVG charts are drawn on a light surface; keep them as a card in dark mode */
+/* SVG diagrams are vector: let them fill the measure instead of sitting at
+   their authored pixel width, and keep them as a card in dark mode. */
+.prose img.svg,
 .prose img[src$=".svg"] {
+  width: 100%;
+  height: auto;
   background: var(--chart-bg);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: .5rem;
 }
+/* Inlined vectors: no card, they draw on the page and follow the theme. */
+.svg-inline { margin: 1.75rem 0; }
+.svg-inline > svg { display: block; width: 100%; height: auto; }
 @media (max-width: 640px) {
+  .prose img.svg,
   .prose img[src$=".svg"] { padding: .25rem; border-radius: 8px; }
 }
 

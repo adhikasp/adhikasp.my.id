@@ -10,9 +10,6 @@
 	{{- range slice "syntax.css" "mine.css" }}
 	<link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}?v={{ substr (md5 (readFile (printf "static/%s" .))) 0 8 }}" />
 	{{- end }}
-	<script async defer
-		src="https://analytics.umami.is/script.js"
-		data-website-id="05fdd7be-3dc3-468c-a30a-fc9ffd198b33"></script>
 	<link rel="webmention" href="https://webmention.io/adhikasp.my.id/webmention" />
 	<link rel="pingback" href="https://webmention.io/adhikasp.my.id/xmlrpc" />
 </head>

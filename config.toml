@@ -90,3 +90,7 @@ icon = "instagram"
 name = "RSS"
 icon = "rss"
 url = "/index.xml"
+# Tag/taxonomy pages are thin; keep them out of the sitemap and drop their RSS feeds.
+[outputs]
+taxonomy = ["html"]
+term = ["html"]

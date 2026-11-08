@@ -19,7 +19,11 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 <meta name="description" content="{{ $desc }}" />
 <meta name="author" content="Adhika Setya Pramudita" />
+{{- if in (slice "taxonomy" "term") .Kind }}
+<meta name="robots" content="noindex, follow" />
+{{- else }}
 <meta name="robots" content="index, follow, max-image-preview:large" />
+{{- end }}
 <meta name="theme-color" content="#6366f1" />
 {{- with .Params.tags }}
 <meta name="keywords" content="{{ delimit . ", " }}" />

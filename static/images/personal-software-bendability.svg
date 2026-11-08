@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 372" width="480" height="372" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+  <title>How bendable is each part of my base layer</title>
+  <desc>Checklist grid. Omarchy, Herdr and my notes repo pass all four checks: config is text, CLI or API, can fork it, fast reload. Ghostty has only a partial CLI. Telegram is a closed app with my own forked bot on top, so config and forking only partly pass. A typical GUI-only app passes none.</desc>
+  <defs>
+    <g id="yes"><circle r="8.5" fill="#2a78d6"/></g>
+    <g id="part"><circle r="7.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/><path d="M0 -7.5 A7.5 7.5 0 0 0 0 7.5 z" fill="#2a78d6"/></g>
+    <g id="no"><circle r="7.5" fill="none" stroke="#c4c4bf" stroke-width="2"/></g>
+  </defs>
+  <rect width="480" height="372" fill="#fcfcfb"/>
+
+  <!-- column headers -->
+  <g font-size="14" font-weight="600" fill="#4b5260" text-anchor="middle">
+    <text x="236" y="30">Config</text><text x="236" y="46">is text</text>
+    <text x="300" y="30">CLI</text><text x="300" y="46">or API</text>
+    <text x="364" y="30">Can</text><text x="364" y="46">fork it</text>
+    <text x="428" y="30">Fast</text><text x="428" y="46">reload</text>
+  </g>
+  <line x1="16" y1="60" x2="464" y2="60" stroke="#d4d4cf"/>
+
+  <!-- rows: label, sublabel, marks -->
+  <g font-size="16" font-weight="600" fill="#1f2328">
+    <text x="16" y="84">Omarchy</text>
+    <text x="16" y="130">Ghostty</text>
+    <text x="16" y="176">Herdr</text>
+    <text x="16" y="222">My notes repo</text>
+    <text x="16" y="268">Telegram</text>
+  </g>
+  <g font-size="13.5" fill="#6b7280">
+    <text x="16" y="101">Arch + Hyprland</text>
+    <text x="16" y="146">terminal</text>
+    <text x="16" y="192">agent multiplexer</text>
+    <text x="16" y="238">markdown in git</text>
+    <text x="16" y="284">closed app, my own forked bot</text>
+  </g>
+
+  <use href="#yes" x="236" y="88"/><use href="#yes" x="300" y="88"/><use href="#yes" x="364" y="88"/><use href="#yes" x="428" y="88"/>
+  <use href="#yes" x="236" y="134"/><use href="#part" x="300" y="134"/><use href="#yes" x="364" y="134"/><use href="#yes" x="428" y="134"/>
+  <use href="#yes" x="236" y="180"/><use href="#yes" x="300" y="180"/><use href="#yes" x="364" y="180"/><use href="#yes" x="428" y="180"/>
+  <use href="#yes" x="236" y="226"/><use href="#yes" x="300" y="226"/><use href="#yes" x="364" y="226"/><use href="#yes" x="428" y="226"/>
+  <use href="#part" x="236" y="272"/><use href="#yes" x="300" y="272"/><use href="#part" x="364" y="272"/><use href="#yes" x="428" y="272"/>
+
+  <!-- the contrast row -->
+  <line x1="16" y1="298" x2="464" y2="298" stroke="#d4d4cf" stroke-dasharray="4 3"/>
+  <text x="16" y="322" font-size="16" font-weight="600" fill="#6b7280">GUI-only app</text>
+  <text x="16" y="338" font-size="13.5" fill="#6b7280">settings in a database</text>
+  <use href="#no" x="236" y="326"/><use href="#no" x="300" y="326"/><use href="#no" x="364" y="326"/><use href="#no" x="428" y="326"/>
+
+  <!-- legend -->
+  <g font-size="13.5" fill="#6b7280">
+    <use href="#yes" x="244" y="360"/>
+    <text x="258" y="364">yes</text>
+    <use href="#part" x="300" y="360"/>
+    <text x="314" y="364">partly</text>
+    <use href="#no" x="378" y="360"/>
+    <text x="392" y="364">no</text>
+  </g>
+</svg>

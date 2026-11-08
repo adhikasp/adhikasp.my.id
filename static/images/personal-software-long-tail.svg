@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" width="420" height="360" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+<title>What's worth fixing</title>
+<desc>Everything that annoys me as bars, sorted biggest first, with the y axis showing how much time each one is worth. A line for the old cost, a weekend tinkering with the codebase, is cleared only by the two biggest. A line for the new cost, a one-minute prompt whenever the idea comes up, is cleared by almost all of the long tail of small stuff: I used to live with it, now it gets fixed.</desc>
+<rect width="420" height="360" fill="#fcfcfb"/>
+<text x="16.0" y="33.0" font-size="21" fill="#1f2328" font-weight="700">What's worth fixing</text>
+<line x1="34" y1="282" x2="34" y2="70" stroke="#6b7280" stroke-width="1.5"/>
+<path d="M29 77 L34 70 L39 77" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="22.0" y="176.0" font-size="13.5" fill="#1f2328" font-weight="600" text-anchor="middle" transform="rotate(-90 22 176.0)">time worth spending on it</text>
+<rect x="42.0" y="105.0" width="14.2" height="177.0" rx="2" fill="#1f2328"/>
+<rect x="60.2" y="144.6" width="14.2" height="137.4" rx="2" fill="#1f2328"/>
+<rect x="78.4" y="175.0" width="14.2" height="107.0" rx="2" fill="#2a78d6"/>
+<rect x="96.6" y="198.5" width="14.2" height="83.5" rx="2" fill="#2a78d6"/>
+<rect x="114.8" y="216.5" width="14.2" height="65.5" rx="2" fill="#2a78d6"/>
+<rect x="133.0" y="230.4" width="14.2" height="51.6" rx="2" fill="#2a78d6"/>
+<rect x="151.2" y="241.2" width="14.2" height="40.8" rx="2" fill="#2a78d6"/>
+<rect x="169.4" y="249.4" width="14.2" height="32.6" rx="2" fill="#2a78d6"/>
+<rect x="187.6" y="255.7" width="14.2" height="26.3" rx="2" fill="#2a78d6"/>
+<rect x="205.8" y="260.6" width="14.2" height="21.4" rx="2" fill="#2a78d6"/>
+<rect x="224.0" y="264.4" width="14.2" height="17.6" rx="2" fill="#2a78d6"/>
+<rect x="242.2" y="267.3" width="14.2" height="14.7" rx="2" fill="#2a78d6"/>
+<rect x="260.4" y="269.5" width="14.2" height="12.5" rx="2" fill="#2a78d6"/>
+<rect x="278.6" y="271.2" width="14.2" height="10.8" rx="2" fill="#2a78d6"/>
+<rect x="296.8" y="272.6" width="14.2" height="9.4" rx="2" fill="#2a78d6"/>
+<rect x="315.0" y="273.6" width="14.2" height="8.4" rx="2" fill="#c9c9c4"/>
+<rect x="333.2" y="274.4" width="14.2" height="7.6" rx="2" fill="#c9c9c4"/>
+<rect x="351.4" y="275.0" width="14.2" height="7.0" rx="2" fill="#c9c9c4"/>
+<rect x="369.6" y="275.4" width="14.2" height="6.6" rx="2" fill="#c9c9c4"/>
+<rect x="387.8" y="275.8" width="14.2" height="6.2" rx="2" fill="#c9c9c4"/>
+<line x1="34" y1="282" x2="404" y2="282" stroke="#6b7280" stroke-width="1.5"/>
+<line x1="34" y1="166" x2="404" y2="166" stroke="#1f2328" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="404.0" y="158.0" font-size="13.5" fill="#1f2328" text-anchor="end">a weekend tinkering with the codebase</text>
+<text x="404.0" y="140.0" font-size="14" fill="#1f2328" font-weight="700" text-anchor="end">cost then:</text>
+<line x1="34" y1="273" x2="404" y2="273" stroke="#2a78d6" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="404.0" y="251.0" font-size="13.5" fill="#2a78d6" text-anchor="end">whenever the idea comes up</text>
+<text x="404.0" y="233.0" font-size="13.5" fill="#2a78d6" text-anchor="end">a 1-minute prompt,</text>
+<text x="404.0" y="215.0" font-size="14" fill="#2a78d6" font-weight="700" text-anchor="end">cost now:</text>
+<text x="42.0" y="96.0" font-size="13.5" fill="#1f2328" font-weight="600">the big stuff</text>
+<path d="M78.4 290 v6 H311.0 v-6" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="78.4" y="316.0" font-size="13.5" fill="#2a78d6" font-weight="600">the long tail of small stuff</text>
+<text x="78.4" y="334.0" font-size="13.5" fill="#6b7280">I used to live with it. Now it gets fixed.</text>
+</svg>

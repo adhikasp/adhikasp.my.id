@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 344" width="420" height="344" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+<title>Who I trust</title>
+<desc>A grid of things I trust, with two columns: holds my stuff, and acts as me. Gmail holds my email, Chrome my saved passwords, LastPass held my passwords until it was breached, and Vaultwarden holds them now, which means I trust myself. None of them act as me. The last row, Claude Code and OpenCode with a shell on my machine, is the only one that both holds my stuff and acts as me.</desc>
+<rect width="420" height="344" fill="#fcfcfb"/>
+<text x="16" y="33" font-size="21" fill="#1f2328" font-weight="700">Who I trust</text>
+<text x="318" y="56" font-size="14" fill="#4b5260" font-weight="600" text-anchor="middle">holds</text>
+<text x="318" y="72" font-size="14" fill="#4b5260" font-weight="600" text-anchor="middle">my stuff</text>
+<text x="384" y="56" font-size="14" fill="#4b5260" font-weight="600" text-anchor="middle">acts</text>
+<text x="384" y="72" font-size="14" fill="#4b5260" font-weight="600" text-anchor="middle">as me</text>
+<line x1="16" y1="84" x2="404" y2="84" stroke="#d4d4cf"/>
+<text x="16" y="106" font-size="16" fill="#1f2328" font-weight="600">Gmail</text>
+<text x="16" y="123" font-size="13.5" fill="#6b7280">my email</text>
+<circle cx="318" cy="110" r="8.5" fill="#2a78d6"/>
+<circle cx="384" cy="110" r="7.5" fill="none" stroke="#c4c4bf" stroke-width="2"/>
+<text x="16" y="152" font-size="16" fill="#1f2328" font-weight="600">Chrome</text>
+<text x="16" y="169" font-size="13.5" fill="#6b7280">my saved passwords</text>
+<circle cx="318" cy="156" r="8.5" fill="#2a78d6"/>
+<circle cx="384" cy="156" r="7.5" fill="none" stroke="#c4c4bf" stroke-width="2"/>
+<text x="16" y="198" font-size="16" fill="#1f2328" font-weight="600">LastPass</text>
+<text x="16" y="215" font-size="13.5" fill="#eb6834">my passwords, until the breach</text>
+<circle cx="318" cy="202" r="8.5" fill="#eb6834"/>
+<circle cx="384" cy="202" r="7.5" fill="none" stroke="#c4c4bf" stroke-width="2"/>
+<text x="16" y="244" font-size="16" fill="#1f2328" font-weight="600">Vaultwarden</text>
+<text x="16" y="261" font-size="13.5" fill="#6b7280">my passwords now, so: me</text>
+<circle cx="318" cy="248" r="8.5" fill="#2a78d6"/>
+<circle cx="384" cy="248" r="7.5" fill="none" stroke="#c4c4bf" stroke-width="2"/>
+<rect x="8" y="278" width="404" height="56" rx="8" fill="#eef4fc" stroke="#2a78d6"/>
+<text x="18" y="302" font-size="16" fill="#1f2328" font-weight="700">Claude Code, OpenCode</text>
+<text x="18" y="320" font-size="13.5" fill="#6b7280">a shell on my machine</text>
+<circle cx="318" cy="306" r="8.5" fill="#2a78d6"/>
+<circle cx="384" cy="306" r="8.5" fill="#2a78d6"/>
+</svg>

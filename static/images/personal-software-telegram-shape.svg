@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 945" width="420" height="945" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+<title>How chatting changed the bot's shape</title>
+<desc>Five messages over 29 hours, each next to the shape of the Telegram bot after it. Saturday 11:11, asking for an always-on Claude session connected to Telegram: one bot, one session, live 12:17. 17:55, a screenshot and "can your telegram plugin handle topics like this?": forked at 17:57, topics in but still one session. 18:27, "I want isolated Claude session per topic / DM": a router with a session per topic, working 18:38. Sunday 15:31, "Rewrite to rust if needed. I heard it high perf and safe": each session link goes from 55 MB to 2 MB, live 15:51. 16:01, the agent says "Yes, it's possible, but I'd say no." and I reply "yes go ahead with rewrite": the Rust router goes from 60 MB to 6 MB, live 16:09. Plugin memory falls from 475 MB across 10 Bun processes to about 19 MB for a Rust router and 6 bridges; about 2,000 lines of Rust in under an hour.</desc>
+<rect width="420" height="945" fill="#fcfcfb"/>
+<text x="16.0" y="33.0" font-size="21" fill="#1f2328" font-weight="700">Five messages, 29 hours</text>
+<line x1="16" y1="66" x2="16" y2="617" stroke="#d4d4cf" stroke-width="2"/>
+<rect x="7" y="447" width="18" height="16" fill="#fcfcfb"/>
+<path d="M8 452 l16 -4 M8 460 l16 -4" stroke="#6b7280" stroke-width="1.5"/>
+<text x="30.0" y="460.0" font-size="13" fill="#6b7280" font-style="italic">overnight</text>
+<circle cx="16" cy="66" r="5.5" fill="#fcfcfb" stroke="#1f2328" stroke-width="2"/>
+<text x="30.0" y="71.0" font-size="14" fill="#1f2328" font-weight="700">SAT 11:11</text>
+<text x="114.0" y="71.0" font-size="14" fill="#6b7280">→ live 12:17</text>
+<rect x="44.0" y="86" width="180.0" height="90" rx="12" fill="#2a78d6"/>
+<path d="M214.0 164 L229.0 176 L206.0 174 z" fill="#2a78d6"/>
+<text x="57.0" y="108.0" font-size="14.5" fill="#ffffff">I want an ever green</text>
+<text x="57.0" y="127.0" font-size="14.5" fill="#ffffff">always active Claude</text>
+<text x="57.0" y="146.0" font-size="14.5" fill="#ffffff">session … connected</text>
+<text x="57.0" y="165.0" font-size="14.5" fill="#ffffff">to my telegram</text>
+<rect x="236" y="82.0" width="168" height="100" rx="10" fill="#f5f5f3" stroke="#d4d4cf"/>
+<rect x="249" y="93" width="30" height="56" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="255" y="106" width="18" height="5" rx="2" fill="#b9d3f2"/>
+<rect x="255" y="119" width="18" height="5" rx="2" fill="#b9d3f2"/>
+<rect x="255" y="132" width="18" height="5" rx="2" fill="#b9d3f2"/>
+<path d="M281 121 L335 121" stroke="#2a78d6" stroke-width="2"/>
+<rect x="337" y="106" width="54" height="30" rx="6" fill="#eaf2fc" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="364.0" y="126.0" font-size="14" fill="#1f2328" text-anchor="middle">agent</text>
+<text x="320.0" y="170.0" font-size="14" fill="#1f2328" font-weight="700" text-anchor="middle">one bot, one session</text>
+<circle cx="16" cy="204" r="5.5" fill="#fcfcfb" stroke="#1f2328" stroke-width="2"/>
+<text x="30.0" y="209.0" font-size="14" fill="#1f2328" font-weight="700">SAT 17:55</text>
+<text x="114.0" y="209.0" font-size="14" fill="#6b7280">→ forked 17:57</text>
+<rect x="30.0" y="224" width="194.0" height="101" rx="12" fill="#2a78d6"/>
+<path d="M214.0 313 L229.0 325 L206.0 323 z" fill="#2a78d6"/>
+<rect x="42.0" y="233" width="54" height="26" rx="3" fill="#ffffff" fill-opacity=".92"/>
+<rect x="47.0" y="237" width="4" height="4" rx="1" fill="#2a78d6"/>
+<rect x="54.0" y="238" width="34" height="2.5" rx="1" fill="#9aa0a6"/>
+<rect x="47.0" y="244" width="4" height="4" rx="1" fill="#1baf7a"/>
+<rect x="54.0" y="245" width="28" height="2.5" rx="1" fill="#9aa0a6"/>
+<rect x="47.0" y="251" width="4" height="4" rx="1" fill="#8a63d2"/>
+<rect x="54.0" y="252" width="22" height="2.5" rx="1" fill="#9aa0a6"/>
+<text x="104.0" y="251.0" font-size="13" fill="#dce9f9" font-style="italic">screenshot</text>
+<text x="43.0" y="276.0" font-size="14.5" fill="#ffffff">can your telegram</text>
+<text x="43.0" y="295.0" font-size="14.5" fill="#ffffff">plugin handle topics</text>
+<text x="43.0" y="314.0" font-size="14.5" fill="#ffffff">like this?</text>
+<rect x="236" y="224.5" width="168" height="100" rx="10" fill="#f5f5f3" stroke="#d4d4cf"/>
+<rect x="249" y="235.5" width="30" height="56" rx="6" fill="#ffffff" stroke="#c9c9c4" stroke-width="1.5"/>
+<rect x="255" y="248.5" width="18" height="5" rx="2" fill="#2a78d6"/>
+<rect x="255" y="261.5" width="18" height="5" rx="2" fill="#1baf7a"/>
+<rect x="255" y="274.5" width="18" height="5" rx="2" fill="#8a63d2"/>
+<path d="M281 251.0 C 313 251.0, 309 263.5, 335 263.5" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<path d="M281 264.0 C 313 264.0, 309 263.5, 335 263.5" fill="none" stroke="#1baf7a" stroke-width="2"/>
+<path d="M281 277.0 C 313 277.0, 309 263.5, 335 263.5" fill="none" stroke="#8a63d2" stroke-width="2"/>
+<rect x="337" y="248.5" width="54" height="30" rx="6" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<text x="364.0" y="268.5" font-size="14" fill="#6b7280" text-anchor="middle">agent</text>
+<text x="320.0" y="312.5" font-size="14" fill="#1f2328" font-weight="700" text-anchor="middle">topics, one session</text>
+<circle cx="16" cy="353" r="5.5" fill="#fcfcfb" stroke="#1f2328" stroke-width="2"/>
+<text x="30.0" y="358.0" font-size="14" fill="#1f2328" font-weight="700">SAT 18:27</text>
+<text x="114.0" y="358.0" font-size="14" fill="#6b7280">→ working 18:38</text>
+<rect x="30.0" y="373" width="194.0" height="52" rx="12" fill="#2a78d6"/>
+<path d="M214.0 413 L229.0 425 L206.0 423 z" fill="#2a78d6"/>
+<text x="43.0" y="395.0" font-size="14.5" fill="#ffffff">I want isolated Claude</text>
+<text x="43.0" y="414.0" font-size="14.5" fill="#ffffff">session per topic / DM</text>
+<rect x="236" y="369.0" width="168" height="100" rx="10" fill="#f5f5f3" stroke="#d4d4cf"/>
+<rect x="249" y="380" width="30" height="56" rx="6" fill="#ffffff" stroke="#c9c9c4" stroke-width="1.5"/>
+<rect x="255" y="393" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="406" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="419" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<path d="M281 395.5 C 297 395.5, 289 408, 299 408" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<path d="M281 408.5 C 297 408.5, 289 408, 299 408" fill="none" stroke="#1baf7a" stroke-width="2"/>
+<path d="M281 421.5 C 297 421.5, 289 408, 299 408" fill="none" stroke="#8a63d2" stroke-width="2"/>
+<path d="M323 408 C 335 408, 325 389, 343 389" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<rect x="345" y="381" width="46" height="16" rx="4" fill="#2a78d6" fill-opacity=".16" stroke="#2a78d6" stroke-width="1.5"/>
+<path d="M323 408 C 335 408, 325 408, 343 408" fill="none" stroke="#1baf7a" stroke-width="2"/>
+<rect x="345" y="400" width="46" height="16" rx="4" fill="#1baf7a" fill-opacity=".16" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M323 408 C 335 408, 325 427, 343 427" fill="none" stroke="#8a63d2" stroke-width="2"/>
+<rect x="345" y="419" width="46" height="16" rx="4" fill="#8a63d2" fill-opacity=".16" stroke="#8a63d2" stroke-width="1.5"/>
+<circle cx="311" cy="408" r="12" fill="#ffffff" stroke="#1f2328" stroke-width="2"/>
+<text x="320.0" y="457.0" font-size="14" fill="#1f2328" font-weight="700" text-anchor="middle">a session per topic</text>
+<circle cx="16" cy="485" r="5.5" fill="#fcfcfb" stroke="#1f2328" stroke-width="2"/>
+<text x="30.0" y="490.0" font-size="14" fill="#1f2328" font-weight="700">SUN 15:31</text>
+<text x="114.0" y="490.0" font-size="14" fill="#6b7280">→ live 15:51</text>
+<rect x="59.4" y="505" width="164.6" height="71" rx="12" fill="#2a78d6"/>
+<path d="M214.0 564 L229.0 576 L206.0 574 z" fill="#2a78d6"/>
+<text x="72.4" y="527.0" font-size="14.5" fill="#ffffff">Rewrite to rust if</text>
+<text x="72.4" y="546.0" font-size="14.5" fill="#ffffff">needed. I heard it</text>
+<text x="72.4" y="565.0" font-size="14.5" fill="#ffffff">high perf and safe</text>
+<rect x="236" y="501.0" width="168" height="100" rx="10" fill="#f5f5f3" stroke="#d4d4cf"/>
+<rect x="249" y="512" width="30" height="56" rx="6" fill="#ffffff" stroke="#c9c9c4" stroke-width="1.5"/>
+<rect x="255" y="525" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="538" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="551" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<path d="M281 527.5 C 297 527.5, 289 540, 299 540" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M281 540.5 C 297 540.5, 289 540, 299 540" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M281 553.5 C 297 553.5, 289 540, 299 540" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M323 540 C 335 540, 325 521, 343 521" fill="none" stroke="#eb6834" stroke-width="3"/>
+<rect x="345" y="513" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<path d="M323 540 C 335 540, 325 540, 343 540" fill="none" stroke="#eb6834" stroke-width="3"/>
+<rect x="345" y="532" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<path d="M323 540 C 335 540, 325 559, 343 559" fill="none" stroke="#eb6834" stroke-width="3"/>
+<rect x="345" y="551" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<circle cx="311" cy="540" r="12" fill="#ffffff" stroke="#c9c9c4" stroke-width="2"/>
+<text x="320.0" y="589.0" font-size="14" fill="#eb6834" font-weight="700" text-anchor="middle">each link 55 → 2 MB</text>
+<circle cx="16" cy="617" r="5.5" fill="#fcfcfb" stroke="#1f2328" stroke-width="2"/>
+<text x="30.0" y="622.0" font-size="14" fill="#1f2328" font-weight="700">SUN 16:01</text>
+<text x="114.0" y="622.0" font-size="14" fill="#6b7280">→ live 16:09</text>
+<rect x="30" y="637" width="172.3" height="52" rx="12" fill="#e6e6e1"/>
+<path d="M40 677 L25 689 L48 687 z" fill="#e6e6e1"/>
+<text x="43.0" y="659.0" font-size="14.5" fill="#1f2328">Yes, it&#x27;s possible,</text>
+<text x="43.0" y="678.0" font-size="14.5" fill="#1f2328">but I&#x27;d say no.</text>
+<rect x="67.1" y="699" width="156.9" height="52" rx="12" fill="#2a78d6"/>
+<path d="M214.0 739 L229.0 751 L206.0 749 z" fill="#2a78d6"/>
+<text x="80.1" y="721.0" font-size="14.5" fill="#ffffff">yes go ahead with</text>
+<text x="80.1" y="740.0" font-size="14.5" fill="#ffffff">rewrite</text>
+<rect x="236" y="644.0" width="168" height="100" rx="10" fill="#f5f5f3" stroke="#d4d4cf"/>
+<rect x="249" y="655.0" width="30" height="56" rx="6" fill="#ffffff" stroke="#c9c9c4" stroke-width="1.5"/>
+<rect x="255" y="668.0" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="681.0" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<rect x="255" y="694.0" width="18" height="5" rx="2" fill="#c9c9c4"/>
+<path d="M281 670.5 C 297 670.5, 289 683.0, 299 683.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M281 683.5 C 297 683.5, 289 683.0, 299 683.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M281 696.5 C 297 696.5, 289 683.0, 299 683.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<path d="M323 683.0 C 335 683.0, 325 664.0, 343 664.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<rect x="345" y="656.0" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<path d="M323 683.0 C 335 683.0, 325 683.0, 343 683.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<rect x="345" y="675.0" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<path d="M323 683.0 C 335 683.0, 325 702.0, 343 702.0" fill="none" stroke="#c9c9c4" stroke-width="2"/>
+<rect x="345" y="694.0" width="46" height="16" rx="4" fill="#efefec" stroke="#c9c9c4" stroke-width="1.5"/>
+<circle cx="311" cy="683.0" r="17" fill="none" stroke="#eb6834" stroke-opacity=".3" stroke-width="4"/>
+<circle cx="311" cy="683.0" r="12" fill="#eb6834"/>
+<text x="320.0" y="732.0" font-size="14" fill="#eb6834" font-weight="700" text-anchor="middle">router 60 → 6 MB</text>
+<line x1="16" y1="775" x2="404" y2="775" stroke="#d4d4cf"/>
+<text x="16.0" y="803.0" font-size="15" fill="#1f2328" font-weight="700">Plugin memory, Sunday afternoon</text>
+<text x="16.0" y="827.0" font-size="14" fill="#6b7280">before: 10 Bun processes</text>
+<rect x="16" y="835" width="322" height="18" rx="4" fill="#c9c9c4"/>
+<text x="346.0" y="849.0" font-size="14" fill="#6b7280" font-weight="600">475 MB</text>
+<text x="16.0" y="877.0" font-size="14" fill="#6b7280">after: Rust router + 6 bridges</text>
+<rect x="16" y="885" width="12.9" height="18" rx="4" fill="#eb6834"/>
+<text x="36.9" y="899.0" font-size="14" fill="#eb6834" font-weight="700">~19 MB</text>
+<text x="16.0" y="931.0" font-size="14.5" fill="#1f2328" font-weight="600">About 2,000 lines of Rust, in under an hour.</text>
+</svg>

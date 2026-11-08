@@ -1,6 +1,6 @@
 ---
-title: "My personal software"
-description: "I stopped shopping for tools that almost fit. Now I pick software I can bend, and let an agent do the bending: my base layer, and what I built on it."
+title: "My personal software: bending tools instead of shopping for them"
+description: "Coding agents made small changes cheap, so now I pick software I can bend: what makes it bendable, my base layer, and what I built on it."
 date: 2026-11-08T12:00:00+08:00
 tags:
   - "agents"
@@ -17,7 +17,7 @@ That changed for me over the last year. Now when something annoys me, I ask an a
 
 That's what I mean by personal software: software that fits one person. Me, and sometimes my wife. It doesn't need to be a product. It doesn't need docs, other people's edge cases, or a launch on [Hacker News](https://news.ycombinator.com). It only needs to fit me.
 
-This post is about the setup that makes that work: a base layer that can be bent, agents that do the bending, and what came out of it so far.
+This post covers what makes software bendable, the base layer I picked for it, and what I built on top.
 
 ## Why now
 

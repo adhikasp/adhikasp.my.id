@@ -18,7 +18,7 @@ render = 'always'
 [params]
 subtitle = "Collection of thoughts"
 homeTitle = "Adhika Setya Pramudita: AI agents, data and self-hosting"
-description = "Notes by Adhika Setya Pramudita, a software engineer in Singapore: AI agents, MCP servers, Hacker News data analysis and self-hosting."
+description = "Notes by Adhika Setya Pramudita, a software engineer: AI agents, MCP servers, Hacker News data analysis and self-hosting."
 mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
 maxTags = 5

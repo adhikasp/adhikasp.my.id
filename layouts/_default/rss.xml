@@ -1,7 +1,9 @@
-{{- /* Based on Hugo's internal RSS template (v0.169), two changes:
-       1. feed entries use the front-matter description (or a short plain-text summary) instead of
-          the rendered summary — notebook posts rendered themselves into 3.8 MB of feed XML;
-       2. services.rss.limit in config.toml caps the item count. 2026-11-09 */ -}}
+{{- /* Based on Hugo's internal RSS template (v0.169), changed 2026-11-09:
+       - entries carry the front-matter description as <description> and the rendered post
+         (capped at ~20 KB) as <content:encoded>, so readers get full text without a
+         megabyte-per-poll feed (a notebook post used to dump 3.8 MB into index.xml);
+       - relative src/href are absolutised, which readers require;
+       - services.rss.limit in config.toml caps the item count. */ -}}
 {{- $authorName := "" }}
 {{- with site.Params.author }}
 	{{- if reflect.IsMap . }}
@@ -10,6 +12,7 @@
 		{{- $authorName = . }}
 	{{- end }}
 {{- end }}
+{{- $base := site.BaseURL }}
 
 {{- $pctx := . }}
 {{- if .IsHome }}{{ $pctx = .Site }}{{ end }}
@@ -24,7 +27,7 @@
 	{{- $pages = $pages | first $limit }}
 {{- end }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
 		<title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
 		<link>{{ .Permalink }}</link>
@@ -44,6 +47,18 @@
 			{{- $desc := "" }}
 			{{- with .Description }}{{ $desc = . }}{{ else }}{{ $desc = .Summary | plainify | htmlUnescape | chomp }}{{ end }}
 			{{- if gt (len $desc) 500 }}{{ $desc = printf "%s…" (substr $desc 0 500) }}{{ end }}
+			{{- $body := .Content }}
+			{{- /* Absolute URLs: readers do not reliably resolve relative src/href against <link>. */}}
+			{{- $body = replaceRE `(src|href)="/` (printf `$1="%s` $base) $body }}
+			{{- if gt (len $body) 20000 }}
+				{{- /* Cut at the last block-level close tag inside 20 KB, never mid-tag or mid-rune. */}}
+				{{- $cut := substr $body 0 20000 }}
+				{{- $trimmed := replaceRE `(?s)^(.*)</(p|div|pre|table|ul|ol|h[1-6]|figure|blockquote)>.*$` "${1}</${2}>" $cut }}
+				{{- if eq $trimmed $cut }}
+					{{- $trimmed = printf "%s…" (substr $body 0 19500) }}
+				{{- end }}
+				{{- $body = printf "%s<p><a href=%q>Read the rest →</a></p>" $trimmed .Permalink }}
+			{{- end }}
 			<item>
 				<title>{{ .Title }}</title>
 				<link>{{ .Permalink }}</link>
@@ -51,6 +66,7 @@
 				{{- with $authorName }}<author>{{ . }}</author>{{ end }}
 				<guid>{{ .Permalink }}</guid>
 				<description>{{ $desc | transform.XMLEscape | safeHTML }}</description>
+				<content:encoded>{{ $body | transform.XMLEscape | safeHTML }}</content:encoded>
 			</item>
 		{{- end }}
 	</channel>

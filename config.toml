@@ -4,10 +4,11 @@ title = "Adhika Setya Pramudita"
 theme = "ink-free"
 enableRobotsTXT = false
 tableOfContents = true
-enableGitInfo = true
 
 [frontmatter]
-lastmod = [':git', ':fileModTime']
+# Real content updates only: set `lastmod:` in a post's front matter when it is substantively revised.
+# (Git commit dates were stamping every page with the date of a metadata-only commit.)
+lastmod = ['lastmod', 'date', 'publishDate']
 
 [_build]
 list = 'always'
@@ -16,7 +17,8 @@ render = 'always'
 
 [params]
 subtitle = "Collection of thoughts"
-description = "Personal site of Adhika Setya Pramudita: software engineering, data, notes, projects."
+homeTitle = "Adhika Setya Pramudita: AI agents, data and self-hosting"
+description = "Notes by Adhika Setya Pramudita, a software engineer in Singapore: AI agents, MCP servers, Hacker News data analysis and self-hosting."
 mainSections = ["posts", "link-blog", "notebook"]
 wpm = 150
 maxTags = 5

@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="page-title">Writing</h1>
+<h1 class="page-title">Writing on AI agents, data and self-hosting</h1>
 <p class="page-lede">{{ .Site.Params.description }}</p>
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}

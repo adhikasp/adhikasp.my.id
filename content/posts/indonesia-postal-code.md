@@ -2,6 +2,8 @@
 title: "Indonesia Postal Code"
 date: 2025-02-02T00:12:17+07:00
 description: "Inspired by a CGP Grey video, I plotted 83,761 Indonesian postal-code points to see how far the five-digit hierarchy holds outside Jakarta."
+images:
+  - "/images/kodepos-1.png"
 tags:
   - "software-development"
   - "data"

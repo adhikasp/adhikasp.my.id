@@ -1,0 +1,18 @@
+{{- /* Raster image for a page: social cards (og:image) and list thumbnails.
+       Input: dict "page" <page> "body" <bool: fall back to the first image in the body>.
+       Returns a site-relative path like "/images/x.jpg", or "" when there is none.
+       SVGs map to the JPEG that scripts/rasterize-svgs.sh renders into static/images/card/;
+       an SVG with no rendered card yields "" (callers then fall back to the logo / no thumb). */ -}}
+{{- $p := .page -}}
+{{- $c := "" -}}
+{{- with $p.Params.image }}{{ $c = . }}{{ else }}{{ with $p.Params.images }}{{ $c = index . 0 }}{{ end }}{{ end -}}
+{{- if and (not $c) .body -}}
+  {{- with findRESubmatch `!\[[^\]]*\]\((/images/[^)\s]+)` $p.RawContent 1 }}{{ $c = index (index . 0) 1 }}{{ end -}}
+{{- end -}}
+{{- $c = strings.TrimPrefix "images/" (strings.TrimPrefix "/" $c) | printf "/images/%s" -}}
+{{- if eq $c "/images/" }}{{ return "" }}{{ end -}}
+{{- if findRE `(?i)\.svg$` $c -}}
+  {{- $card := printf "/images/card/%s.jpg" (path.Base (strings.TrimSuffix ".svg" $c)) -}}
+  {{- if fileExists (printf "static%s" $card) }}{{ return $card }}{{ else }}{{ return "" }}{{ end -}}
+{{- end -}}
+{{- if fileExists (printf "static%s" $c) }}{{ return $c }}{{ else }}{{ return "" }}{{ end -}}

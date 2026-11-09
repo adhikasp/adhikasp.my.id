@@ -1,9 +1,10 @@
 {{ $notebook := .Get 0 }}
+{{ $page := .Page }}
 {{ with .Page.Resources.GetMatch $notebook }}
   {{ with .Content | transform.Unmarshal }}
-    {{ range .cells }}
+    {{ range $ci, $cell := .cells }}
       {{ if eq .cell_type "markdown" }}
-        {{ delimit .source "" | $.Page.RenderString }}
+        {{ delimit .source "" | $page.RenderString }}
       {{ end }}
 
       {{ if eq .cell_type "code" }}
@@ -20,16 +21,25 @@
 
         {{ if .outputs }}
           <div class="cell-output">
-            {{ range .outputs }}
-              {{ if .text }}
-                <pre class="cell-output-text">{{ range .text }}{{ . | safeHTML }}{{ end }}</pre>
+            {{ range $oi, $out := .outputs }}
+              {{ if $out.text }}
+                <pre class="cell-output-text">{{ range $out.text }}{{ . | safeHTML }}{{ end }}</pre>
               {{ end }}
-              
-              {{ range $type, $data := .data }}
+
+              {{ range $type, $data := $out.data }}
                 {{ if strings.Contains $type "image" }}
-                  <img src="data:{{ $type }};base64,{{ $data | safeHTML }}" alt="Cell output">
+                  {{/* Write the output image as a real file instead of inlining it as base64:
+                       a single 1.6 MB plot turned the HTML page into 2.1 MB of incompressible text
+                       and made Caddy re-gzip it for every request (2026-11-09). */}}
+                  {{ $b64 := "" }}
+                  {{ if reflect.IsSlice $data }}{{ $b64 = delimit $data "" }}{{ else }}{{ $b64 = $data }}{{ end }}
+                  {{ $ext := "png" }}
+                  {{ if strings.Contains $type "jpeg" }}{{ $ext = "jpg" }}{{ else if strings.Contains $type "svg" }}{{ $ext = "svg" }}{{ else if strings.Contains $type "gif" }}{{ $ext = "gif" }}{{ end }}
+                  {{ $name := printf "%soutput-%d-%d.%s" (strings.TrimPrefix "/" $page.RelPermalink) $ci $oi $ext }}
+                  {{ $img := resources.FromString $name ($b64 | base64Decode) }}
+                  <img src="{{ $img.RelPermalink }}" alt="Cell output" loading="lazy">
                 {{ end }}
-                
+
                 {{ if strings.Contains $type "text/html" }}
                   {{ range $data }}{{ . | safeHTML }}{{ end }}
                 {{ end }}

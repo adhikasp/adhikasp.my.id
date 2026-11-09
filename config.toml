@@ -5,6 +5,11 @@ theme = "ink-free"
 enableRobotsTXT = false
 tableOfContents = true
 
+[services.rss]
+# 10 newest items per feed; entries carry the front-matter description (layouts/_default/rss.xml).
+# Was -1 (all posts, full rendered content): index.xml hit 5.2 MB and cost ~0.9 s of gzip per fetch on gatotkaca (2026-11-09).
+limit = 10
+
 [frontmatter]
 # Real content updates only: set `lastmod:` in a post's front matter when it is substantively revised.
 # (Git commit dates were stamping every page with the date of a metadata-only commit.)

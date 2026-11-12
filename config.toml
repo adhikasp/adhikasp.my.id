@@ -101,3 +101,15 @@ url = "/index.xml"
 [outputs]
 taxonomy = ["html"]
 term = ["html"]
+# /llms.txt: one markdown index for agents (`layouts/index.llms.txt`, built from each
+# post's title + description so it cannot drift). Spec: https://llmstxt.org/
+home = ["html", "rss", "llms"]
+
+[mediaTypes.'text/plain']
+  suffixes = ['txt']
+
+[outputFormats.llms]
+  mediaType = 'text/plain'
+  baseName = 'llms'
+  isPlainText = true
+  notAlternative = true

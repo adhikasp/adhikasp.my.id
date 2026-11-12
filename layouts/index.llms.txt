@@ -1,0 +1,24 @@
+# {{ site.Params.homeTitle | default site.Title }}
+
+> {{ site.Params.description }}
+
+Personal site of Adhika Setya Pramudita, a software engineer who writes about AI agents,
+data analysis and self-hosting. Longer experiments live under /notebook/ as rendered
+Jupyter notebooks (each also downloadable as .ipynb); short curated links live under
+/link-blog/.
+
+- Author: Adhika Setya Pramudita
+- Language: English
+- Feeds: {{ "index.xml" | absURL }}
+- Sitemap: {{ "sitemap.xml" | absURL }}
+- Pages are static HTML; no JavaScript is needed to read them.
+{{ range $section := slice "posts" "notebook" "link-blog" }}
+## {{ $section | title | replaceRE "^Link-Blog$" "Link notes" }}
+{{ range (where site.RegularPages "Section" $section).ByDate.Reverse -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+{{- end }}
+## Optional
+
+- [About]({{ "about/" | absURL }}): Who Adhika is, and what he works on
+- [Projects]({{ "public-service/" | absURL }}): Public services and tools he runs

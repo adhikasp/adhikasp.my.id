@@ -30,4 +30,4 @@ I'm a Lead Software Engineer on the AI Enablement team at Grab. We build AI-firs
 
 I tinker with self-hosted services and Linux, publish small [open source tools](/public-service/), and write about what I learn on this [blog](/posts/). This site runs on my own homelab.
 
-Find me on [GitHub](https://github.com/adhikasp), [LinkedIn](https://linkedin.com/in/adhikasp) and [Hacker News](https://news.ycombinator.com/user?id=adhikasp), or email me at hello @ adhikasp.my.id.
+Find me on [GitHub](https://github.com/adhikasp), [LinkedIn](https://linkedin.com/in/adhikasp) and [Hacker News](https://news.ycombinator.com/user?id=adhikasp), or email me at hello @ adhikasp.id.

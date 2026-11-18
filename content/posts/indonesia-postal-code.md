@@ -13,7 +13,7 @@ Today, I watch a video from CGP Grey on postal code patterns.
 
 {{< youtube 1K5oDtVAYzk >}}
 
-I was curious about the postal code pattern in Indonesia, so I decided to visualize it in  <a href="https://kodepos.adhikasp.my.id/">Kodepos</a>.
+I was curious about the postal code pattern in Indonesia, so I decided to visualize it in  <a href="https://kodepos.adhikasp.id/">Kodepos</a>.
 
 ![kodepos-1](/images/kodepos-1.png)
 

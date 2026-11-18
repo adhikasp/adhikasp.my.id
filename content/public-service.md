@@ -10,7 +10,7 @@ I run a few open source projects, feel free to use them. They are provided on a 
 
 ## Running
 
-- <a href="https://brainmax.adhikasp.my.id/">BrainMax</a> - a TikTok-style feed for browsing research papers (arXiv, medRxiv, bioRxiv, PubMed, Hacker News) with simplified abstracts and daily visual explainers. Started as a fork of <a href="https://github.com/Miguel07Alm/arxivtok">ArxivTok</a>.
+- <a href="https://brainmax.adhikasp.id/">BrainMax</a> - a TikTok-style feed for browsing research papers (arXiv, medRxiv, bioRxiv, PubMed, Hacker News) with simplified abstracts and daily visual explainers. Started as a fork of <a href="https://github.com/Miguel07Alm/arxivtok">ArxivTok</a>.
 - <a href="https://adhikasp.github.io/llm-token-calculator/">LLM Token Calculator</a> - count tokens and estimate cost for a given text across LLM models.
 
 ## Open data

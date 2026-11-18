@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 338" width="480" height="338" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+  <title>Which way towers lie, by the road next to them</title>
+  <desc>1,995 towers of 12 or more floors, grouped by the direction of the nearest road. Next to east-west roads (760 blocks), 95% lie east-west. Next to north-south roads (390 blocks), 71% still lie east-west and only 21% follow the road north-south. Next to diagonal roads (655 blocks), 48% lie east-west, 45% are diagonal and 6% lie north-south.</desc>
+  <defs>
+    <g id="road">
+      <rect x="-24" y="-7" width="48" height="14" rx="2" fill="#6b7280"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#fcfcfb" stroke-width="2" stroke-dasharray="6 5"/>
+    </g>
+  </defs>
+  <rect width="480" height="338" fill="#fcfcfb"/>
+
+  <text x="16" y="30" font-size="18" font-weight="700" fill="#1f2328">Which way towers lie, by the road next to them</text>
+
+  <!-- key: block glyphs -->
+  <g font-size="13.5" fill="#4b5260">
+    <rect x="80" y="50" width="26" height="9" rx="1.5" fill="#2a78d6"/>
+    <text x="114" y="59">lies E-W</text>
+    <rect x="200" y="50" width="26" height="9" rx="1.5" fill="#8b93a1" transform="rotate(-45 213 54.5)"/>
+    <text x="234" y="59">diagonal</text>
+    <rect x="335" y="42" width="9" height="26" rx="1.5" fill="#eb6834"/>
+    <text x="352" y="59">lies N-S</text>
+  </g>
+  <line x1="16" y1="80" x2="464" y2="80" stroke="#e6e6e2"/>
+
+  <!-- row 1: road east-west -->
+  <use href="#road" x="40" y="133"/>
+  <text x="80" y="108" font-size="15" font-weight="600" fill="#1f2328">Road runs east-west</text>
+  <text x="460" y="108" font-size="13.5" fill="#6b7280" text-anchor="end">760 blocks</text>
+  <rect x="80" y="118" width="359.5" height="30" fill="#2a78d6"/>
+  <rect x="439.5" y="118" width="9.9" height="30" fill="#8b93a1"/>
+  <rect x="449.4" y="118" width="10.6" height="30" fill="#eb6834"/>
+  <text x="92" y="139" font-size="17" font-weight="700" fill="#fff">95%</text>
+
+  <!-- row 2: road north-south -->
+  <use href="#road" transform="translate(40 213) rotate(90)"/>
+  <text x="80" y="188" font-size="15" font-weight="600" fill="#1f2328">Road runs north-south</text>
+  <text x="460" y="188" font-size="13.5" fill="#6b7280" text-anchor="end">390 blocks</text>
+  <rect x="80" y="198" width="270.9" height="30" fill="#2a78d6"/>
+  <rect x="350.9" y="198" width="30.2" height="30" fill="#8b93a1"/>
+  <rect x="381.1" y="198" width="78.9" height="30" fill="#eb6834"/>
+  <text x="92" y="219" font-size="17" font-weight="700" fill="#fff">71%</text>
+  <text x="448" y="219" font-size="17" font-weight="700" fill="#fff" text-anchor="end">21%</text>
+
+  <!-- row 3: road diagonal -->
+  <use href="#road" transform="translate(40 293) rotate(-45)"/>
+  <text x="80" y="268" font-size="15" font-weight="600" fill="#1f2328">Road runs diagonal</text>
+  <text x="460" y="268" font-size="13.5" fill="#6b7280" text-anchor="end">655 blocks</text>
+  <rect x="80" y="278" width="183.9" height="30" fill="#2a78d6"/>
+  <rect x="263.9" y="278" width="171.8" height="30" fill="#8b93a1"/>
+  <rect x="435.7" y="278" width="24.3" height="30" fill="#eb6834"/>
+  <text x="92" y="299" font-size="17" font-weight="700" fill="#fff">48%</text>
+  <text x="276" y="299" font-size="17" font-weight="700" fill="#fff">45%</text>
+  <text x="447.8" y="298" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">6%</text>
+</svg>

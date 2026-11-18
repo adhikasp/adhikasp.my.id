@@ -128,7 +128,7 @@ Meanwhile the money part is getting loud as well. In the last 3 months the big s
 
 ## How I did this, and what is wrong with it
 
-All the data is the public dataset at `hacker-news.adhikasp.my.id`, and the query is a plain DuckDB regex over the title:
+All the data is the public dataset at `hacker-news.adhikasp.id`, and the query is a plain DuckDB regex over the title:
 
 ```sql
 SELECT strftime(time, '%Y-%m') AS month,

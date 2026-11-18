@@ -107,7 +107,7 @@ This matches the all-stories number from my previous post (about one in four), w
 
 ## How I did this, and what is wrong with it
 
-The data is the public dataset at `hacker-news.adhikasp.my.id`. The core query is one `row_number()`:
+The data is the public dataset at `hacker-news.adhikasp.id`. The core query is one `row_number()`:
 
 ```sql
 SELECT d, id, title, url, score, descendants FROM (

@@ -15,7 +15,7 @@ I run a few open source projects, feel free to use them. They are provided on a 
 
 ## Open data
 
-- <a href="https://hacker-news.adhikasp.my.id/year=2026/month=10/data.parquet">Hacker News dataset</a> - every Hacker News item since 2007 as monthly Parquet files, updated daily. Files live at `https://hacker-news.adhikasp.my.id/year=YYYY/month=M/data.parquet`, so you can query them directly with DuckDB.
+- <a href="https://hacker-news.adhikasp.id/year=2026/month=10/data.parquet">Hacker News dataset</a> - every Hacker News item since 2007 as monthly Parquet files, updated daily. Files live at `https://hacker-news.adhikasp.id/year=YYYY/month=M/data.parquet`, so you can query them directly with DuckDB.
 
 ## Open source tools
 

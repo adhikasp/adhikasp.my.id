@@ -2,6 +2,9 @@
 title: "My personal software: bending tools instead of shopping for them"
 description: "Coding agents made small changes cheap, so now I pick software I can bend: what makes it bendable, my base layer, and what I built on it."
 date: 2026-11-08T12:00:00+08:00
+lastmod: 2026-11-18T17:00:00+08:00
+images:
+  - personal-software-hero.jpg
 tags:
   - "agents"
   - "ai"
@@ -19,6 +22,8 @@ That's what I mean by personal software: software that fits one person. Me, and 
 
 This post covers what makes software bendable, the base layer I picked for it, and what I built on top.
 
+![A flat illustration of one desk: a small tower, two rack units, a monitor, a phone and a coffee mug sit on a shelf, all wired into a looping network above it. Three tiny couriers walk along the cables carrying glowing packages.](/images/personal-software-hero.jpg)
+
 ## Why now
 
 Making your own tool was always possible. I'm a software engineer, I could always fork something and patch it. But the cost was a weekend, plus maintaining the patch forever. With coding agents, a small change costs a prompt and a few minutes of waiting. That moves the bar a lot.
@@ -28,6 +33,8 @@ Making your own tool was always possible. I'm a software engineer, I could alway
 The "forever" part got cheaper too, which I didn't expect. This month I moved from the terminal version of [Herdr](https://herdr.dev), the app I run my agents in, to its new desktop app. I had a pile of customization on the old one: plugins, hooks, and scripts that other scripts depended on. The old me would have stayed put because of that pile. Instead, the agent ported all of it on the same day. So lock-in is weak now, and I can pick the better tool instead of the one I already configured.
 
 ## What makes software bendable
+
+![A rigid grid of square tiles, its left half still perfectly aligned, bends upward into a flowing ribbon where a pair of hands pulls it. A few tiles pop out where the bend happens and snap back into new positions.](/images/personal-software-bend.jpg)
 
 Not every piece of software can be bent. An agent works in text: it reads and writes files, runs commands, and reads their output. So software bends well when everything important about it is reachable that way. When I pick a tool now, I check:
 

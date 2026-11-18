@@ -1,7 +1,7 @@
 ---
 title: "How close is AI to recursive self-improvement?"
 date: 2026-11-19T08:00:00+08:00
-publishDate: 2026-11-18T21:50:00+08:00
+publishDate: 2026-11-18T08:00:00+08:00
 description: "I wanted to know if AI can start improving itself yet, so I read the 2026 lab reports, system cards and benchmarks to see what they actually measured."
 tags:
   - "llm"

@@ -4,7 +4,7 @@
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 <ul class="post-list">
-	{{ range $paginator.Pages }}{{ partial "post-item.html" . }}{{ end }}
+	{{ range $i, $p := $paginator.Pages }}{{ partial "post-item.html" (dict "page" $p "first" (eq $i 0)) }}{{ end }}
 </ul>
 {{ partial "paginator.html" . }}
 {{ end }}

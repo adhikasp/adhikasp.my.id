@@ -17,15 +17,20 @@ for svg in static/images/*.svg; do
   echo "card: $jpg"
 done
 
-# List thumbnails: 640x336 (3.2x the 200 px slot, so sharp on HiDPI), Lanczos-downscaled from the
-# source raster or SVG card. The browser must not do the 1600->200 px shrink itself: it aliases
-# (pixelated, Adhika 2026-11-18). card-image.html serves <name>.thumb.jpg when it exists.
+# List thumbnails: WebP at two widths, Lanczos-downscaled from the source raster or SVG card. The
+# browser must not do the 1600->160 px shrink itself: it aliases (pixelated, Adhika 2026-11-18). The
+# desktop column is 10rem (160 px), so 320 covers it at 2x; on a phone the row is full width, so it
+# takes 640. Sizes measured 2026-11-18 on one card: 61 KB as 640x336 JPEG q85, 39 KB as WebP q78,
+# 12 KB at 320. post-item.html emits srcset="...320w, ...640w" + sizes="(max-width: 640px) 100vw, 160px".
 shopt -s nullglob
+rm -f "$OUT"/*.thumb.jpg
 for src in static/images/*.{webp,jpg,jpeg,png} "$OUT"/*.jpg; do
-  [[ "$src" == *.thumb.jpg ]] && continue
+  [[ "$src" == *.thumb.* ]] && continue
   name="$(basename "${src%.*}")"
-  th="$OUT/$name.thumb.jpg"
-  [[ -f "$th" && "$th" -nt "$src" ]] && continue
-  magick "$src" -filter Lanczos -resize 640x336^ -gravity center -extent 640x336 -background "#fcfcfb" -quality 85 -strip "$th"
-  echo "thumb: $th"
+  th640="$OUT/$name.thumb.webp"
+  th320="$OUT/$name.thumb-320.webp"
+  [[ -f "$th640" && "$th640" -nt "$src" && -f "$th320" && "$th320" -nt "$src" ]] && continue
+  magick "$src" -filter Lanczos -resize 640x336^ -gravity center -extent 640x336 -background "#fcfcfb" -quality 78 -strip "$th640"
+  magick "$src" -filter Lanczos -resize 320x168^ -gravity center -extent 320x168 -background "#fcfcfb" -quality 78 -strip "$th320"
+  echo "thumb: $th640 + $th320"
 done

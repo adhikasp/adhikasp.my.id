@@ -1,6 +1,6 @@
 {{ define "main" }}
 <h1 class="page-title">{{ .Title }}</h1>
 <ul class="post-list">
-	{{ range .Pages }}{{ partial "post-item.html" . }}{{ end }}
+	{{ range $i, $p := .Pages }}{{ partial "post-item.html" (dict "page" $p "first" (eq $i 0)) }}{{ end }}
 </ul>
 {{ end }}

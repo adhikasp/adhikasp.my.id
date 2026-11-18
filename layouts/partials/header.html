@@ -4,9 +4,10 @@
 	<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 	{{- partial "seo.html" . -}}
 	<meta name="color-scheme" content="light dark" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+	{{- /* Fonts are self-hosted (static/fonts + @font-face in mine.css): no third-party origin, no
+	       render-blocking Google Fonts stylesheet. Only Inter is preloaded; JetBrains Mono (code,
+	       link sources) loads on demand. */}}
+	<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 	{{- range slice "syntax.css" "mine.css" }}
 	<link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}?v={{ substr (md5 (readFile (printf "static/%s" .))) 0 8 }}" />
 	{{- end }}

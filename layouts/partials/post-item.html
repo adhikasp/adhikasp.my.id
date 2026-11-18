@@ -1,18 +1,28 @@
-{{- /* One row in a post list. */ -}}
+{{- /* One row in a post list.
+       Input: dict "page" <page> ["first" <bool>] — the first row of a list sits above the fold, so it is
+       the LCP candidate: it loads eagerly with fetchpriority=high instead of lazy. A bare Page is still
+       accepted (older callers, term pages) and behaves like "first" = false. */ -}}
+{{- $p := . -}}
+{{- $first := false -}}
+{{- if reflect.IsMap . -}}{{- $p = .page -}}{{- $first = (.first | default false) -}}{{- end -}}
 <li class="post-item h-entry">
-	<time class="dt-published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-	{{- with partial "card-image.html" (dict "page" . "body" true "thumb" true) }}
-	<a class="post-thumb" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . }}" alt="" loading="lazy" decoding="async" width="640" height="336"></a>
+	<time class="dt-published" datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "Jan 2, 2006" }}</time>
+	{{- $thumb := partial "card-image.html" (dict "page" $p "body" true "thumb" true) -}}
+	{{- if $thumb }}
+	{{- $t320 := replace $thumb ".thumb.webp" ".thumb-320.webp" -}}
+	{{- $srcset := "" -}}
+	{{- if fileExists (printf "static%s" $t320) }}{{ $srcset = printf "%s 320w, %s 640w" $t320 $thumb }}{{ end -}}
+	<a class="post-thumb" href="{{ $p.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ $thumb }}"{{ with $srcset }} srcset="{{ . }}" sizes="(max-width: 640px) 100vw, 160px"{{ end }} alt="" loading="{{ if $first }}eager{{ else }}lazy{{ end }}" decoding="async"{{ if $first }} fetchpriority="high"{{ end }} width="640" height="336"></a>
 	{{- end }}
 	<div class="post-main">
-		<h2 class="p-name"><a class="u-url" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}</h2>
-		{{- with partial "page-desc.html" . }}<p class="summary p-summary">{{ . }}</p>{{ end }}
+		<h2 class="p-name"><a class="u-url" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>{{ if $p.Draft }}<span class="draft-label">DRAFT</span>{{ end }}</h2>
+		{{- with partial "page-desc.html" $p }}<p class="summary p-summary">{{ . }}</p>{{ end }}
 		<div class="meta-line">
-			{{- if eq .Section "posts" }}
-			{{- $words := replaceRE `(?s)<div class="highlight">.*?</div>` "" .Content | countwords }}
-			<span>{{ math.Max 1 (math.Ceil (div (float $words) $.Site.Params.wpm)) | int }} min read</span>
+			{{- if eq $p.Section "posts" }}
+			{{- $words := replaceRE `(?s)<div class="highlight">.*?</div>` "" $p.Content | countwords }}
+			<span>{{ math.Max 1 (math.Ceil (div (float $words) $p.Site.Params.wpm)) | int }} min read</span>
 			{{- end }}
-			{{- with .Params.tags }}
+			{{- with $p.Params.tags }}
 			<ul class="tags">
 				{{- range first 4 . }}
 				<li><a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}">{{ . }}</a></li>

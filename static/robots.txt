@@ -1,4 +1,4 @@
-# Crawl rules for adhikasp.my.id
+# Crawl rules for adhikasp.id
 User-agent: *
 Allow: /
 
@@ -7,4 +7,4 @@ Allow: /
 # serialised HTML inside them ("https://news.ycombinator.com/item?id=..." -> 404s).
 Disallow: /*.ipynb
 
-Sitemap: https://adhikasp.my.id/sitemap.xml
+Sitemap: https://adhikasp.id/sitemap.xml

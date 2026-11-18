@@ -1,6 +1,6 @@
-# adhikasp.my.id
+# adhikasp.id
 
-This is my personal blog available at https://adhikasp.my.id.
+This is my personal blog available at https://adhikasp.id (the `adhikasp.my.id` name now 301s here).
 
 ## Local Development
 
@@ -66,6 +66,28 @@ request):
 
 `og:image` / `twitter:image` must be a raster; if a post's `image:` points at
 an SVG the build warns and falls back to `images/og-image.png`.
+
+**Hero images.** Illustrations (as opposed to charts) come from an image model,
+never hand-drawn data. Ship one WebP at 1600×900 — `-quality 75
+-define webp:method=6` lands around 135–150 KB, roughly half the same frame as
+a q80 JPEG — and use that same file for both the inline image and the
+front-matter card:
+
+```
+static/images/my-post-hero.webp   1600×900
+    inline        ![alt](/images/my-post-hero.webp)
+    front matter  images: [my-post-hero.webp]
+```
+
+`images:` doubles as `og:image` / the post-list thumbnail, and Hugo reads WebP
+for its `og:image:width`/`height` tags, so no JPEG copy is needed (Adhika,
+2026-11-18: "I want webp"). A 291 KB JPEG hero is the thing to avoid.
+
+Brief the picture the way the post argues: the model draws what the prompt
+describes, not what the caption claims. Name which face is lit and which is in
+shade, and say the two are separate planes at right angles — otherwise it
+paints a bright stripe on the windowed facade, which reads as sun in the
+windows.
 
 ## Descriptions are linted
 

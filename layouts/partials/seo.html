@@ -29,7 +29,8 @@
 <meta name="keywords" content="{{ delimit . ", " }}" />
 {{- end }}
 
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 {{- with .OutputFormats.Get "rss" }}
@@ -55,7 +56,7 @@
 {{- if $isArticle }}
 <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
 <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
-<meta property="article:author" content="https://adhikasp.my.id/about/" />
+<meta property="article:author" content="{{ "about/" | absURL }}" />
 <meta property="article:section" content="{{ .Section }}" />
 {{- range .Params.tags }}
 <meta property="article:tag" content="{{ . }}" />

@@ -1,4 +1,4 @@
-/* adhikasp.my.id: site stylesheet.
+/* adhikasp.id: site stylesheet.
    Replaces the ink-free theme CSS entirely (main.css, dark.css, normalize.css are no longer loaded).
    Tokens first, light by default, dark via prefers-color-scheme or the header toggle ([data-theme]). */
 
@@ -409,7 +409,7 @@ iframe, video { border: 0; border-radius: 8px; }
 .post-item time { grid-column: 1; grid-row: 1; }
 .post-thumb { grid-column: 1; grid-row: 2; align-self: start; margin-top: .4rem; }
 .post-thumb img {
-  display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover;
+  display: block; width: 100%; height: auto; aspect-ratio: 640 / 336; object-fit: cover;
   border: 1px solid var(--line); border-radius: 6px; background: var(--chart-bg);
 }
 .post-thumb:hover img { border-color: var(--accent); }

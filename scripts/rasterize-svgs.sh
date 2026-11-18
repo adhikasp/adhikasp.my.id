@@ -16,3 +16,16 @@ for svg in static/images/*.svg; do
     | magick png:- -background '#fcfcfb' -gravity center -extent 1200x630 -quality 90 -strip "$jpg"
   echo "card: $jpg"
 done
+
+# List thumbnails: 640x336 (3.2x the 200 px slot, so sharp on HiDPI), Lanczos-downscaled from the
+# source raster or SVG card. The browser must not do the 1600->200 px shrink itself: it aliases
+# (pixelated, Adhika 2026-11-18). card-image.html serves <name>.thumb.jpg when it exists.
+shopt -s nullglob
+for src in static/images/*.{webp,jpg,jpeg,png} "$OUT"/*.jpg; do
+  [[ "$src" == *.thumb.jpg ]] && continue
+  name="$(basename "${src%.*}")"
+  th="$OUT/$name.thumb.jpg"
+  [[ -f "$th" && "$th" -nt "$src" ]] && continue
+  magick "$src" -filter Lanczos -resize 640x336^ -gravity center -extent 640x336 -background "#fcfcfb" -quality 85 -strip "$th"
+  echo "thumb: $th"
+done

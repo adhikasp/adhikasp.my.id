@@ -4,7 +4,7 @@ description: "Coding agents made small changes cheap, so now I pick software I c
 date: 2026-11-08T12:00:00+08:00
 lastmod: 2026-11-18T17:00:00+08:00
 images:
-  - personal-software-hero.jpg
+  - personal-software-hero-seedream.jpg
 tags:
   - "agents"
   - "ai"
@@ -22,7 +22,7 @@ That's what I mean by personal software: software that fits one person. Me, and 
 
 This post covers what makes software bendable, the base layer I picked for it, and what I built on top.
 
-![A flat illustration of one desk: a small tower, two rack units, a monitor, a phone and a coffee mug sit on a shelf, all wired into a looping network above it. Three tiny couriers walk along the cables carrying glowing packages.](/images/personal-software-hero.jpg)
+![A flat illustration of one desk: a small tower, two rack units, a laptop, a phone and a coffee mug on a wooden desk between two potted plants. Thin cables loop up from every device into a tangled network above it, and three tiny couriers walk those cables carrying glowing packages.](/images/personal-software-hero-seedream.jpg)
 
 ## Why now
 
@@ -34,7 +34,7 @@ The "forever" part got cheaper too, which I didn't expect. This month I moved fr
 
 ## What makes software bendable
 
-![A rigid grid of square tiles, its left half still perfectly aligned, bends upward into a flowing ribbon where a pair of hands pulls it. A few tiles pop out where the bend happens and snap back into new positions.](/images/personal-software-bend.jpg)
+![A checkerboard grid of square tiles, its left half still perfectly aligned, bends upward into a flowing ribbon where a pair of hands pulls it. A few tiles pop out where the bend starts and fly off to land in new positions.](/images/personal-software-bend-seedream.jpg)
 
 Not every piece of software can be bent. An agent works in text: it reads and writes files, runs commands, and reads their output. So software bends well when everything important about it is reachable that way. When I pick a tool now, I check:
 

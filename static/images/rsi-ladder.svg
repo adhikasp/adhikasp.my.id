@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 372" width="480" height="372" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+  <title>Five levels of AI self-improvement</title>
+  <desc>A staircase of five levels. L0: retry an answer, universal. L1: rewrite its own harness, prompts or agent code against a fixed test, industrial. L2: update its own weights on self-generated tasks inside a fixed recipe, small scale. L3: run the research loop while humans pick the problem, partial. L4: build the next frontier model with negligible human direction, not yet.</desc>
+  <rect width="480" height="372" fill="#fcfcfb"/>
+  <text x="16" y="30" font-size="16" font-weight="700" fill="#1f2328">The self-improvement ladder</text>
+
+  <!-- autonomy axis in the empty corner left of the upper steps -->
+  <g stroke="#9aa1ad" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M24 238 V60"/>
+    <path d="M18 68 L24 58 L30 68"/>
+  </g>
+  <text transform="translate(44 150) rotate(-90)" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle" letter-spacing="0.6">MORE AUTONOMY</text>
+
+  <g font-size="13.5">
+    <rect x="128" y="50" width="336" height="58" rx="8" fill="#fcfcfb" stroke="#c4c4bf" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="140" y="72" font-weight="700" fill="#1f2328">L4  Builds its successor</text>
+    <text x="140" y="92" fill="#4b5260">negligible human direction</text>
+
+    <rect x="96" y="116" width="368" height="58" rx="8" fill="#eaf1fb" stroke="#2a78d6" stroke-width="1.5"/>
+    <text x="108" y="138" font-weight="700" fill="#1f2328">L3  Runs the research loop</text>
+    <text x="108" y="158" fill="#4b5260">humans still pick the problem</text>
+
+    <rect x="64" y="182" width="400" height="58" rx="8" fill="#cfe0f6" stroke="#2a78d6" stroke-width="1.5"/>
+    <text x="76" y="204" font-weight="700" fill="#1f2328">L2  Trains its own weights</text>
+    <text x="76" y="224" fill="#4b5260">self-made tasks, fixed recipe</text>
+
+    <rect x="32" y="248" width="432" height="58" rx="8" fill="#2a78d6"/>
+    <text x="44" y="270" font-weight="700" fill="#ffffff">L1  Rewrites its own harness</text>
+    <text x="44" y="290" fill="#eaf1fb">code and prompts, fixed test suite</text>
+
+    <rect x="16" y="314" width="448" height="42" rx="8" fill="#1d5aa8"/>
+    <text x="28" y="340" font-weight="700" fill="#ffffff">L0  Retries an answer</text>
+  </g>
+
+  <!-- status pills, right-aligned at x=452 -->
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="388" y="60" width="64" height="22" rx="11" fill="#ececea"/>
+    <text x="420" y="75.5" fill="#6b7280">not yet</text>
+    <rect x="388" y="126" width="64" height="22" rx="11" fill="#2a78d6"/>
+    <text x="420" y="141.5" fill="#ffffff">partial</text>
+    <rect x="368" y="192" width="84" height="22" rx="11" fill="#ffffff"/>
+    <text x="410" y="207.5" fill="#1d5aa8">small scale</text>
+    <rect x="374" y="258" width="78" height="22" rx="11" fill="#ffffff" fill-opacity="0.22"/>
+    <text x="413" y="273.5" fill="#ffffff">industrial</text>
+    <rect x="374" y="324" width="78" height="22" rx="11" fill="#ffffff" fill-opacity="0.22"/>
+    <text x="413" y="339.5" fill="#ffffff">universal</text>
+  </g>
+</svg>
